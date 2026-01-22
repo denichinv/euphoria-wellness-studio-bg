@@ -1,9 +1,14 @@
+import { Navbar } from "./components/layout/Navbar";
+
 export default function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <h1 className="text-4xl font-semibold text-gray-900">
-        Tailwind is working
-      </h1>
-    </div>
+    <>
+      <Navbar />
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <h1 className="text-4xl font-semibold text-gray-900">
+          Tailwind is working
+        </h1>
+      </div>
+    </>
   );
 }
