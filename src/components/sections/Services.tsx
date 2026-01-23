@@ -1,3 +1,5 @@
+import { ServiceCard } from "../ui/ServiceCard";
+
 type Service = {
   id: string;
   title: string;
@@ -48,26 +50,13 @@ export function Services() {
 
       <div className="grid gap-6 md:grid-cols-2">
         {services.map((service) => (
-          <article
-            className="rounded-2xl border overflow-hidden bg-white "
+          <ServiceCard
             key={service.id}
-          >
-            <img
-              src={service.image}
-              alt={service.title}
-              className="w-full h-56 object-cover"
-              loading="lazy"
-            />
-            <div className="p-6 text-left ">
-              <h3 className="pb-4 text-xl ">{service.title}</h3>
-              <p className="mt-2">{service.description}</p>
-              <ul className="pt-6 list-disc ">
-                {service.features.map((feature) => (
-                  <li key={feature}>{feature}</li>
-                ))}
-              </ul>
-            </div>
-          </article>
+            title={service.title}
+            description={service.description}
+            image={service.image}
+            features={service.features}
+          />
         ))}
       </div>
     </section>
