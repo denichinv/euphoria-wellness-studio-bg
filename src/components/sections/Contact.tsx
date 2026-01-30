@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export function Contact() {
   const divStyle: string =
     "w-12 h-12 rounded-full bg-[#F5F1ED] flex items-center justify-center flex-shrink-0 ";
@@ -5,6 +7,8 @@ export function Contact() {
   const listStyle: string = "flex gap-4 items-start ";
   const inputsStyle: string = "w-full border  rounded-lg px-3 py-2";
   const fieldStyle: string = "space-y-1";
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   return (
     <section
@@ -70,77 +74,95 @@ export function Contact() {
             </li>
           </ul>
         </div>
+
+        {/* Left column */}
+
         <div className="rounded-2xl border bg-white p-6 sm:p-8 shadow-sm space-y-4">
-          <h3 className="text-3xl">Have a question or want to get started?</h3>
-          <form
-            className="space-y-4"
-            onSubmit={(e) => {
-              e.preventDefault();
-              console.log("Request Sent");
-            }}
-          >
-            <div className={fieldStyle}>
-              <label htmlFor="name">Full Name</label>
-              <input
-                type="text"
-                placeholder="Your Name"
-                id="name"
-                name="name"
-                className={inputsStyle}
-                required
-              />
-            </div>
-            <div className={fieldStyle}>
-              <label htmlFor="email">Email Address</label>
-              <input
-                type="email"
-                placeholder="your@email.com"
-                id="email"
-                name="email"
-                className={inputsStyle}
-                required
-              />
-            </div>
-            <div className={fieldStyle}>
-              <label htmlFor="phone">Phone Number</label>
-              <input
-                type="tel"
-                placeholder="+359 XXX XXX XXX"
-                id="phone"
-                name="phone"
-                className={inputsStyle}
-              />
-            </div>
-            <div className={fieldStyle}>
-              <label htmlFor="service">Service Interest</label>
-              <select
-                name="service"
-                id="service"
-                className={inputsStyle}
-                defaultValue="pilates"
+          {isSubmitted ? (
+            <div className="space-y-10 pt-6 ">
+              <p>Thanks! We'll get back to you shortly.</p>
+              <button
+                type="button"
+                className={`${inputsStyle} bg-black text-white text-lg`}
+                onClick={() => setIsSubmitted(false)}
               >
-                <option value="pilates">Pilates Reformer</option>
-                <option value="xbody">XBODY EMS</option>
-                <option value="others">Others</option>
-              </select>
+                Send another message
+              </button>
             </div>
-            <div className={fieldStyle}>
-              <label htmlFor="message">Message (Optional)</label>
-              <textarea
-                name="message"
-                id="message"
-                className={inputsStyle}
-                rows={4}
-                placeholder="Tell us about your goals... "
-              />
-            </div>
-            <button
-              type="submit"
-              className={`${inputsStyle} bg-black text-white text-lg`}
+          ) : (
+            <form
+              className="space-y-4"
+              onSubmit={(e) => {
+                e.preventDefault();
+                setIsSubmitted(true);
+              }}
             >
-              Sent Request
-            </button>
-          </form>
+              <h3 className="text-3xl">
+                Have a question or want to get started?
+              </h3>
+              <div className={fieldStyle}>
+                <label htmlFor="name">Full Name</label>
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  id="name"
+                  name="name"
+                  className={inputsStyle}
+                  required
+                />
+              </div>
+              <div className={fieldStyle}>
+                <label htmlFor="email">Email Address</label>
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  id="email"
+                  name="email"
+                  className={inputsStyle}
+                  required
+                />
+              </div>
+              <div className={fieldStyle}>
+                <label htmlFor="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  placeholder="+359 XXX XXX XXX"
+                  id="phone"
+                  name="phone"
+                  className={inputsStyle}
+                />
+              </div>
+              <div className={fieldStyle}>
+                <label htmlFor="service">Service Interest</label>
+                <select
+                  name="service"
+                  id="service"
+                  className={inputsStyle}
+                  defaultValue="pilates"
+                >
+                  <option value="pilates">Pilates Reformer</option>
+                  <option value="xbody">XBODY EMS</option>
+                  <option value="others">Others</option>
+                </select>
+              </div>
+              <div className={fieldStyle}>
+                <label htmlFor="message">Message (Optional)</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  className={inputsStyle}
+                  rows={4}
+                  placeholder="Tell us about your goals... "
+                />
+              </div>
+              <button
+                type="submit"
+                className={`${inputsStyle} bg-black text-white text-lg`}
+              >
+                Sent Request
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </section>
