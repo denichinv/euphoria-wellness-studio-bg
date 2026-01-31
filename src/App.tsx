@@ -4,6 +4,7 @@ import { Services } from "./components/sections/Services";
 import { About } from "./components/sections/About";
 import { Gallery } from "./components/sections/Gallery";
 import { Contact } from "./components/sections/Contact";
+import { Footer } from "./components/layout/Footer";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <About />
       <Gallery />
       <Contact />
+      <Footer />
     </>
   );
 }
