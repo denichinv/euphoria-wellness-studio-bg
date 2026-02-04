@@ -11,13 +11,25 @@
       name="description"
       content="Euphoria е уелнес студио в Благоевград с Pilates Reformer и XBODY EMS. Кратки, ефективни тренировки и персонално внимание за твоите цели."
     />
-
     <meta name="robots" content="index,follow" />
     <meta name="author" content="Vilizar Denichin" />
   </head>
 
   <body>
     <div id="root"></div>
+    <form name="contact" method="POST" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <select name="service">
+        <option value="pilates">Pilates Reformer</option>
+        <option value="xbody">XBODY EMS</option>
+        <option value="others">Others</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -8,7 +8,31 @@ export function Contact() {
   const inputsStyle: string = "w-full border  rounded-lg px-3 py-2";
   const fieldStyle: string = "space-y-1";
 
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [service, setService] = useState("pilates");
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    await fetch("/", {
+      method: "POST",
+      body: formData,
+    });
+
+    setIsSubmitted(true);
+    setName("");
+    setEmail("");
+    setPhone("");
+    setMessage("");
+    setService("pilates");
+  };
 
   return (
     <section
@@ -92,11 +116,12 @@ export function Contact() {
           ) : (
             <form
               className="space-y-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setIsSubmitted(true);
-              }}
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              onSubmit={handleSubmit}
             >
+              <input type="hidden" name="form-name" value="contact" />
               <h3 className="text-3xl">
                 Have a question or want to get started?
               </h3>
@@ -107,6 +132,10 @@ export function Contact() {
                   placeholder="Your Name"
                   id="name"
                   name="name"
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
                   className={inputsStyle}
                   required
                 />
@@ -118,6 +147,10 @@ export function Contact() {
                   placeholder="your@email.com"
                   id="email"
                   name="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                   className={inputsStyle}
                   required
                 />
@@ -129,6 +162,10 @@ export function Contact() {
                   placeholder="+359 XXX XXX XXX"
                   id="phone"
                   name="phone"
+                  value={phone}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                  }}
                   className={inputsStyle}
                 />
               </div>
@@ -138,7 +175,10 @@ export function Contact() {
                   name="service"
                   id="service"
                   className={inputsStyle}
-                  defaultValue="pilates"
+                  value={service}
+                  onChange={(e) => {
+                    setService(e.target.value);
+                  }}
                 >
                   <option value="pilates">Pilates Reformer</option>
                   <option value="xbody">XBODY EMS</option>
@@ -150,6 +190,10 @@ export function Contact() {
                 <textarea
                   name="message"
                   id="message"
+                  value={message}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                  }}
                   className={inputsStyle}
                   rows={4}
                   placeholder="Tell us about your goals... "
