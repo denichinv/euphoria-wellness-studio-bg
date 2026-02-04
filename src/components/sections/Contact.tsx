@@ -66,14 +66,6 @@ export function Contact() {
             <li className={listStyle}>
               <div className={divStyle}>logo</div>
               <div>
-                <h3>Location</h3>
-                <p>Blagoevgrad, Bulgaria</p>
-              </div>
-            </li>
-
-            <li className={listStyle}>
-              <div className={divStyle}>logo</div>
-              <div>
                 <h3>Hours</h3>
                 <p>Mon–Fri: 08:00–20:00</p>
                 <p>Sat–Sun: 09:00–18:00</p>
@@ -104,6 +96,15 @@ export function Contact() {
               </div>
             </li>
           </ul>
+
+          <div className="mt-6">
+            <iframe
+              title="Euphoria Studio location on Google Maps"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d310.81800690855556!2d23.091980147071702!3d42.01362303887827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14aaf5ff1674d2d3%3A0x840870a0ede1a7aa!2sBlagoevgrad%20Center%2C%20ul.%20%22Ilinden%22%203%2C%202700%20Blagoevgrad!5e0!3m2!1sen!2sbg!4v1770224302922!5m2!1sen!2sbg"
+              className="w-full h-[300px] rounded-xl border"
+              loading="lazy"
+            />
+          </div>
         </div>
 
         {/* Left column */}
