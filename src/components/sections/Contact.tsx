@@ -127,9 +127,11 @@ export function Contact() {
               name="contact"
               method="POST"
               data-netlify="true"
+              data-netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
             >
               <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="bot-field" />
               <h3 className="text-3xl">
                 Have a question or want to get started?
               </h3>
