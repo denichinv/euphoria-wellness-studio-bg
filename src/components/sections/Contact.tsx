@@ -21,17 +21,24 @@ export function Contact() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    await fetch("/", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
 
-    setIsSubmitted(true);
-    setName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
-    setService("pilates");
+      if (!res.ok) throw new Error("Submit failed");
+
+      setIsSubmitted(true);
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+      setService("pilates");
+    } catch (err) {
+      alert(String(err));
+    }
   };
 
   return (
