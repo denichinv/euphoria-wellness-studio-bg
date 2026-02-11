@@ -4,12 +4,10 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 ">
         <div className="grid gap-5 py-10 md:grid-cols-3">
           <div className="space-y-2 ">
+            <img src="/images/brand/logo-footer.png" alt="logo"></img>
             <p className="text-xl font-bold text-white/90">
-              Euphoria <br /> XBODY & Pilates Studio
+              XBody Euphoria & Pilates Reformer
             </p>
-            <div className="h-24 w-24 border flex items-center justify-center bg-white/5 rounded-xl ">
-              Logo
-            </div>
 
             <p>
               Transforming lives through personalized fitness and wellness in
