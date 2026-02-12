@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Phone, Mail, Instagram, Clock } from "lucide-react";
 
 export function Contact() {
   const divStyle: string =
-    "w-12 h-12 rounded-full bg-[#F5F1ED] flex items-center justify-center flex-shrink-0 ";
+    "w-12 h-12 rounded-full bg-[#F5F1ED] flex items-center justify-center flex-shrink-0 hover:bg-[#B4948F] transition-colors`}";
 
   const listStyle: string = "flex gap-4 items-start ";
   const inputsStyle: string = "w-full border  rounded-lg px-3 py-2";
@@ -64,7 +65,9 @@ export function Contact() {
 
           <ul className="mt-4 space-y-4">
             <li className={listStyle}>
-              <div className={divStyle}>logo</div>
+              <div className={divStyle}>
+                <Clock />
+              </div>
               <div>
                 <h3>Hours</h3>
                 <p>Mon–Fri: 08:00–20:00</p>
@@ -73,15 +76,24 @@ export function Contact() {
             </li>
 
             <li className={listStyle}>
-              <div className={divStyle}>logo</div>
+              <div className={divStyle}>
+                {" "}
+                <a href="tel:+359897869293">
+                  <Phone size={20} />
+                </a>
+              </div>
               <div>
                 <h3>Phone</h3>
-                <p>+359 XXX XXX XXX</p>
+                <a href="tel:+359897869293"></a>
+
+                <p>+359 897 869 293</p>
               </div>
             </li>
 
             <li className={listStyle}>
-              <div className={divStyle}>logo</div>
+              <div className={divStyle}>
+                <Mail size={20} />
+              </div>
               <div>
                 <h3>Email</h3>
                 <p>info@xbodyeuphoria.com</p>
@@ -89,10 +101,14 @@ export function Contact() {
             </li>
 
             <li className={listStyle}>
-              <div className={divStyle}>logo</div>
+              <div className={divStyle}>
+                <a href="https://instagram.com/xbody_euphoria" target="_blank">
+                  <Instagram size={20} />
+                </a>
+              </div>
               <div>
                 <h3>Follow Us</h3>
-                <p>@xbodyeuphoria</p>
+                <p>@xbody_euphoria</p>
               </div>
             </li>
           </ul>
@@ -100,7 +116,7 @@ export function Contact() {
           <div className="mt-6">
             <iframe
               title="Euphoria Studio location on Google Maps"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d310.81800690855556!2d23.091980147071702!3d42.01362303887827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14aaf5ff1674d2d3%3A0x840870a0ede1a7aa!2sBlagoevgrad%20Center%2C%20ul.%20%22Ilinden%22%203%2C%202700%20Blagoevgrad!5e0!3m2!1sen!2sbg!4v1770224302922!5m2!1sen!2sbg"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11856.862851080612!2d23.08025626533252!3d42.0171046396258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14aaf50037bd5417%3A0xff8ae402cc4aa9af!2sX%20Body%20Euphoria%20%26%20Pilates%20Reformer%20studio!5e0!3m2!1sen!2suk!4v1770937952841!5m2!1sen!2suk"
               className="w-full h-[300px] rounded-xl border"
               loading="lazy"
             />
