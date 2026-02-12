@@ -27,10 +27,10 @@ export function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden min-h-[100svh] flex items-center justify-center"
+      className="relative overflow-hidden min-h-screen flex items-center justify-center"
       id="hero"
     >
-      <div className="absolute inset-0 z-0 bg-black">
+      <div className="absolute inset-0 z-0">
         <div
           className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
             current === 0 ? "opacity-100" : "opacity-0"
@@ -47,7 +47,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
 
       <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20 z-10  text-center">
         <div className="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
