@@ -1,46 +1,87 @@
 export function Footer() {
   return (
-    <footer className="border-t-2 bg-slate-900 text-white/60">
-      <div className="mx-auto max-w-6xl px-4 ">
-        <div className="grid gap-5 py-10 md:grid-cols-3">
-          <div className="space-y-2 ">
-            <img src="/images/brand/logo-footer.png" alt="logo"></img>
-            <p className="text-xl font-bold text-white/90">
+    <footer className=" bg-gradient-to-b from-slate-950 to-slate-900 text-white py-10 px-5">
+      <div className="mx-auto max-w-6xl ">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <h3 className="text-xl mb-4 leading-relaxed">
               XBody Euphoria & Pilates Reformer
-            </p>
+            </h3>
 
-            <p>
+            <p className="text-gray-400 text-sm leading-relaxed mt-4">
               Transforming lives through personalized fitness and wellness in
               Blagoevgrad.
             </p>
+            <img
+              src="/images/brand/logo-footer.png"
+              alt="logo"
+              className="h-20 mt-4 opacity-90"
+            />
           </div>
-          <nav className="space-y-2 ">
-            <p className="text-xl font-bold text-white/90">Quick Links</p>
-            <a href="#services" className="block">
-              Services
-            </a>
-            <a href="#about" className="block">
-              About Us
-            </a>
-            <a href="#gallery" className="block">
-              Gallery
-            </a>
-            <a href="#contact" className="block">
-              Contact
-            </a>
-          </nav>
+          <div>
+            <h4 className="mb-4 tracking-wider">Quick Links</h4>
+            <ul className="space-y-2 text-sm text-gray-400 leading-relaxed">
+              <li>
+                <a
+                  href="#services"
+                  className="hover:text-accent-blush transition-colors"
+                >
+                  Services
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  className="hover:text-accent-blush transition-colors"
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#gallery"
+                  className="hover:text-accent-blush transition-colors"
+                >
+                  Gallery
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="hover:text-accent-blush transition-colors"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
           <address className="space-y-2 not-italic">
-            <p className="text-xl font-bold text-white/90">Contact</p>
+            <h4 className="mb-4 tracking-wider">Contact</h4>
 
-            <p>Blagoevgrad, Bulgaria</p>
-
-            <p>+359 XXX XXX XXX</p>
-            <p>info@xbodyeuphoria.com</p>
+            <ul className="space-y-2 text-sm text-gray-400 leading-relaxed">
+              <li>Blagoevgrad, Bulgaria</li>
+              <li>
+                <a
+                  href="tel:+359897869293"
+                  className="hover:text-accent-blush transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blush/40"
+                >
+                  +359 897 869 293
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:xbodyeuphoria.wellness.studio@gmail.com"
+                  className="hover:text-accent-blush transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blush/40"
+                >
+                  xbodyeuphoria.wellness.studio@gmail.com
+                </a>
+              </li>
+            </ul>
           </address>
         </div>
-        <hr className="border-white/10" />
-        <div className="text-center p-6">
-          <p>
+
+        <div className="text-center pt-8 border-t border-gray-800 ">
+          <p className="text-gray-400 text-sm leading-relaxed ">
             © 2026 Euphoria - XBODY & Pilates Reformer Studio. All rights
             reserved.
           </p>
