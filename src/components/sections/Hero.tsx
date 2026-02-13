@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 export function Hero() {
   const button =
-    "group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-full hover:bg-[#E8D5D5] transition-all duration-300 shadow-lg hover:shadow-xl";
+    "group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-full hover:bg-accent-blush transition-all duration-300 shadow-lg hover:shadow-xl";
 
   const desktopImages = [
     "/images/hero/hero-desktop.jpeg",
@@ -57,7 +57,7 @@ export function Hero() {
         </div>
         <h1 className="text-5xl md:text-7xl lg:text-8xl text-white mb-6 font-medium text-center font-serif tracking-tight leading-tight ">
           XBody Euphoria <br />
-          <span className="text-[#E8D5D5]"> & Pilates Reformer </span>
+          <span className="bg-accent-blush"> & Pilates Reformer </span>
         </h1>
         <p className="text-center mt-4 font-sans leading-relaxed text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
           Индивидуални XBody EMS и Pilates Reformer сесии в спокойна и комфортна

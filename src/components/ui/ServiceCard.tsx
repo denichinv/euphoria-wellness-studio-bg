@@ -32,7 +32,7 @@ export function ServiceCard({
               key={feature}
               className="flex items-start gap-3 font-sans text-sm text-neutral-600"
             >
-              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#B4948F] flex-shrink-0" />
+              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent-mauve flex-shrink-0" />
               {feature}
             </li>
           ))}

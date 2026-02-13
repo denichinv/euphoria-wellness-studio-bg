@@ -3,9 +3,9 @@ import { services } from "../../data/services";
 
 export function Services() {
   return (
-    <section className="py-24 bg-[#F5F1ED]" id="services">
+    <section className="py-24 bg-surface" id="services">
       <div className="max-w-6xl mx-auto px-4 text-center">
-        <p className="font-sans uppercase tracking-[0.2em] text-sm text-[#B4948F]">
+        <p className="font-sans uppercase tracking-[0.2em] text-sm bg-accent-mauve">
           УСЛУГИ
         </p>
         <h2 className="font-serif text-4xl md:text-6xl text-neutral-900 mb-6">

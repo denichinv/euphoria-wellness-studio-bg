@@ -3,7 +3,7 @@ import { Phone, Mail, Instagram, Clock } from "lucide-react";
 
 export function Contact() {
   const divStyle: string =
-    "w-12 h-12 rounded-full bg-[#F5F1ED] flex items-center justify-center flex-shrink-0 hover:bg-[#B4948F] transition-colors`}";
+    "w-12 h-12 rounded-full bg-surface flex items-center justify-center flex-shrink-0 hover:bg-accent-blush transition-colors`}";
 
   const listStyle: string = "flex gap-4 items-start ";
   const inputsStyle: string = "w-full border  rounded-lg px-3 py-2";
