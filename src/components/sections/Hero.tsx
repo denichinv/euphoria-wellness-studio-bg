@@ -47,27 +47,32 @@ export function Hero() {
         />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
 
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20 z-10  text-center">
-        <div className="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
-          <p className="text-white/90 text-sm tracking-wide">
-            Blagoevgrad Wellness Studio
-          </p>
-        </div>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl text-white mb-6 font-medium text-center font-serif tracking-tight leading-tight ">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20 z-10 text-center">
+        {/* Badge */}
+        <p className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm tracking-wide text-white/90 backdrop-blur-sm border border-white/20">
+          Blagoevgrad Wellness Studio
+        </p>
+
+        {/* Title */}
+        <h1 className="mt-6 text-5xl md:text-7xl lg:text-8xl text-white mb-6 font-medium tracking-tight leading-tight">
           XBody Euphoria <br />
-          <span className="bg-accent-blush"> & Pilates Reformer </span>
+          <span className="text-accent-blush"> & Pilates Reformer </span>
         </h1>
-        <p className="text-center mt-4 font-sans leading-relaxed text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+
+        {/* Subtitle */}
+        <p className="mt-4 text-lg md:text-xl leading-relaxed text-white/90 mb-10 max-w-2xl mx-auto">
           Индивидуални XBody EMS и Pilates Reformer сесии в спокойна и комфортна
           среда.
         </p>
+
+        {/* CTAs */}
         <div className="flex justify-center mt-6 gap-4">
-          <a className={`${button} font-sans`} href="#contact">
+          <a className={button} href="#contact">
             Запази час
           </a>
-          <a className={`${button} font-sans`} href="#services">
+          <a className={button} href="#services">
             Виж услугите
           </a>
         </div>
