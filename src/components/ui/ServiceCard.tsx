@@ -23,7 +23,9 @@ export function ServiceCard({
       </div>
       <div className=" p-6 text-left ">
         <h3 className="font-serif text-2xl text-neutral-900">{title}</h3>
-        <p className="mt-2">{description}</p>
+        <p className="text-neutral-700 mb-6 leading-relaxed mt-6">
+          {description}
+        </p>
         <ul className="pt-6 space-y-2">
           {features.map((feature) => (
             <li
