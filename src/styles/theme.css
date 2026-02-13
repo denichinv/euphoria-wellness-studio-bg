@@ -1,0 +1,19 @@
+:root {
+  /* Surfaces */
+  --surface: #f5f1ed;
+  --surface-light: #f8f8f8;
+
+  /* Accents */
+  --accent-blush: #e8d5d5;
+  --accent-mauve: #b4948f;
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    font-family: "Inter", sans-serif;
+  }
+}
