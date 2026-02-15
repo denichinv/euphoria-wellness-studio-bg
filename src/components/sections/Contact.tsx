@@ -3,10 +3,11 @@ import { Phone, Mail, Instagram, Clock } from "lucide-react";
 
 export function Contact() {
   const divStyle: string =
-    "w-12 h-12 rounded-full bg-surface flex items-center justify-center flex-shrink-0 hover:bg-accent-blush transition-colors`}";
+    "w-12 h-12 rounded-full bg-surface flex items-center justify-center flex-shrink-0 hover:bg-accent-blush transition-colors";
 
-  const listStyle: string = "flex gap-4 items-start ";
-  const inputsStyle: string = "w-full border  rounded-lg px-3 py-2";
+  const listStyle: string = "flex gap-4 ";
+  const inputsStyle: string =
+    "w-full  rounded-lg border border-gray-300 bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-accent-blush focus:border-transparent transition-colors text-gray-900";
   const fieldStyle: string = "space-y-1";
 
   const [name, setName] = useState("");
@@ -46,69 +47,82 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-title"
-      className="max-w-6xl mx-auto px-4 py-16 sm:py-20"
+      className="max-w-6xl mx-auto px-4 py-20 md:py-32 "
     >
-      <div className="grid gap-10 lg:grid-cols-2 items-start">
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 ">
         {/* Left column */}
         <div>
-          <p>GET IN TOUCH</p>
-
-          <h2 id="contact-title" className="text-2xl">
-            Ready to Start Your Journey?
-          </h2>
-
-          <p>
-            Book your first session today and experience the difference
-            personalized wellness can make. We&apos;re here to support you every
-            step of the way.
+          <p className="text-accent-mauve uppercase tracking-widest text-sm mb-2">
+            СВЪРЖЕТЕ СЕ С НАС
           </p>
 
-          <ul className="mt-4 space-y-4">
+          <h2
+            id="contact-title"
+            className="text-3xl md:text-5xl text-gray-900 mb-6 "
+          >
+            Готови ли сте за своята трансформация?
+          </h2>
+
+          <p className="text-lg text-gray-600 m-8 leading-relaxed ">
+            Запазете своята първа сесия и усетете разликата, която
+            персонализираният подход може да направи.
+          </p>
+
+          <ul className="mt-2 space-y-4">
             <li className={listStyle}>
               <div className={divStyle}>
                 <Clock />
               </div>
               <div>
-                <h3>Hours</h3>
-                <p>Mon–Fri: 08:00–20:00</p>
-                <p>Sat–Sun: 09:00–18:00</p>
+                <h4 className="text-gray-900 mb-1">Работно време</h4>
+                <p className="text-gray-600">
+                  Понеделник – Петък: 08:00 – 20:00
+                </p>
+                <p className="text-gray-600">Събота: 09:30 – 14:00</p>
+                <p className="text-gray-600 ">Неделя: Почивен ден</p>
               </div>
             </li>
 
             <li className={listStyle}>
-              <div className={divStyle}>
-                {" "}
-                <a href="tel:+359897869293">
+              <a href="tel:+359897869293">
+                <div className={divStyle}>
                   <Phone size={20} />
-                </a>
-              </div>
+                </div>
+              </a>
               <div>
-                <h3>Phone</h3>
-                <a href="tel:+359897869293"></a>
+                <h4 className="text-gray-900 mb-1">Телефон</h4>
 
-                <p>+359 897 869 293</p>
+                <p className="text-gray-600">+359 897 869 293</p>
               </div>
             </li>
 
             <li className={listStyle}>
-              <div className={divStyle}>
-                <Mail size={20} />
-              </div>
+              <a href="mailto:xbodyeuphoria.wellness.studio@gmail.com">
+                <div className={divStyle}>
+                  <Mail size={20} />
+                </div>
+              </a>
               <div>
-                <h3>Email</h3>
-                <p>info@xbodyeuphoria.com</p>
+                <h4 className="text-gray-900 mb-1">Имейл</h4>
+                <p className="text-gray-600">
+                  xbodyeuphoria.wellness.studio@gmail.com
+                </p>
               </div>
             </li>
 
             <li className={listStyle}>
-              <div className={divStyle}>
-                <a href="https://instagram.com/xbody_euphoria" target="_blank">
+              <a
+                href="https://instagram.com/xbody_euphoria"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className={divStyle}>
                   <Instagram size={20} />
-                </a>
-              </div>
+                </div>
+              </a>
               <div>
-                <h3>Follow Us</h3>
-                <p>@xbody_euphoria</p>
+                <h4 className="text-gray-900 mb-1">Последвайте ни</h4>
+                <p className="text-gray-600">@xbody_euphoria</p>
               </div>
             </li>
           </ul>
@@ -123,23 +137,25 @@ export function Contact() {
           </div>
         </div>
 
-        {/* Left column */}
+        {/* Right column */}
 
-        <div className="rounded-2xl border bg-white p-6 sm:p-8 shadow-sm space-y-4">
+        <div className="rounded-3xl bg-surface p-8 md:p-12">
           {isSubmitted ? (
-            <div className="space-y-10 pt-6 ">
-              <p>Thanks! We'll get back to you shortly.</p>
+            <div className="space-y-6 ">
+              <h3 className="text-2xl md:text-3xl text-gray-900 mb-6">
+                Благодарим ви! Ще се свържем с вас възможно най-скоро.
+              </h3>
               <button
                 type="button"
-                className={`${inputsStyle} bg-black text-white text-lg`}
+                className="w-full py-4 bg-gray-900 text-white rounded-xl hover:bg-[#B4948F] transition-colors duration-300"
                 onClick={() => setIsSubmitted(false)}
               >
-                Send another message
+                Изпрати ново съобщение
               </button>
             </div>
           ) : (
             <form
-              className="space-y-4"
+              className="space-y-7"
               name="contact"
               method="POST"
               data-netlify="true"
@@ -148,26 +164,31 @@ export function Contact() {
             >
               <input type="hidden" name="form-name" value="contact" />
               <input type="hidden" name="bot-field" />
-              <h3 className="text-3xl">
-                Have a question or want to get started?
+              <h3 className="text-3xl md:text-4xl text-gray-900 mb-6">
+                Свържете се с нас още днес !
               </h3>
               <div className={fieldStyle}>
-                <label htmlFor="name">Full Name</label>
+                <label htmlFor="name" className="block text-gray-900 mb-2">
+                  Име и фамилия
+                </label>
                 <input
                   type="text"
-                  placeholder="Your Name"
+                  placeholder="Вашето име
+"
                   id="name"
                   name="name"
                   value={name}
                   onChange={(e) => {
                     setName(e.target.value);
                   }}
-                  className={inputsStyle}
+                  className="w-full px-4 py-3 rounded-xl bg-white border border-transparent focus:border-[#B4948F] focus:outline-none transition-colors"
                   required
                 />
               </div>
               <div className={fieldStyle}>
-                <label htmlFor="email">Email Address</label>
+                <label htmlFor="email" className="block text-gray-900 mb-2">
+                  Имейл адрес
+                </label>
                 <input
                   type="email"
                   placeholder="your@email.com"
@@ -182,7 +203,9 @@ export function Contact() {
                 />
               </div>
               <div className={fieldStyle}>
-                <label htmlFor="phone">Phone Number</label>
+                <label htmlFor="phone" className="block text-gray-900 mb-2">
+                  Телефонен номер
+                </label>
                 <input
                   type="tel"
                   placeholder="+359 XXX XXX XXX"
@@ -196,7 +219,9 @@ export function Contact() {
                 />
               </div>
               <div className={fieldStyle}>
-                <label htmlFor="service">Service Interest</label>
+                <label htmlFor="service" className="block text-gray-900 mb-2">
+                  Изберете услуга
+                </label>
                 <select
                   name="service"
                   id="service"
@@ -208,11 +233,13 @@ export function Contact() {
                 >
                   <option value="pilates">Pilates Reformer</option>
                   <option value="xbody">XBODY EMS</option>
-                  <option value="others">Others</option>
+                  <option value="others">Други</option>
                 </select>
               </div>
               <div className={fieldStyle}>
-                <label htmlFor="message">Message (Optional)</label>
+                <label htmlFor="message" className="block text-gray-900 mb-2">
+                  Съобщение (по желание)
+                </label>
                 <textarea
                   name="message"
                   id="message"
@@ -222,14 +249,14 @@ export function Contact() {
                   }}
                   className={inputsStyle}
                   rows={4}
-                  placeholder="Tell us about your goals... "
+                  placeholder="Разкажете ни повече за вашите цели... "
                 />
               </div>
               <button
                 type="submit"
-                className={`${inputsStyle} bg-black text-white text-lg`}
+                className="w-full py-4 bg-gray-900 text-white rounded-xl hover:bg-[#B4948F] transition-colors duration-300 "
               >
-                Sent Request
+                Изпрати запитване
               </button>
             </form>
           )}
