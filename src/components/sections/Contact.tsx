@@ -3,7 +3,7 @@ import { Phone, Mail, Instagram, Clock } from "lucide-react";
 
 export function Contact() {
   const divStyle: string =
-    "w-12 h-12 rounded-full bg-surface flex items-center justify-center flex-shrink-0 hover:bg-accent-blush transition-colors";
+    "w-12 h-12 rounded-full bg-surface flex items-center justify-center flex-shrink-0 hover:bg-accent-blush transition-color text-accent-mauve hover:text-white";
 
   const listStyle: string = "flex gap-4 ";
   const inputsStyle: string =
@@ -147,7 +147,7 @@ export function Contact() {
               </h3>
               <button
                 type="button"
-                className="w-full py-4 bg-gray-900 text-white rounded-xl hover:bg-[#B4948F] transition-colors duration-300"
+                className="w-full py-4 bg-gray-900 text-white rounded-xl hover:bg-accent-mauve transition-colors duration-300"
                 onClick={() => setIsSubmitted(false)}
               >
                 Изпрати ново съобщение
@@ -181,7 +181,7 @@ export function Contact() {
                   onChange={(e) => {
                     setName(e.target.value);
                   }}
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-transparent focus:border-[#B4948F] focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-white border border-transparent focus:border-accent-mauve focus:outline-none transition-colors"
                   required
                 />
               </div>
@@ -254,7 +254,7 @@ export function Contact() {
               </div>
               <button
                 type="submit"
-                className="w-full py-4 bg-gray-900 text-white rounded-xl hover:bg-[#B4948F] transition-colors duration-300 "
+                className="w-full py-4 bg-gray-900 text-white rounded-xl hover:bg-accent-mauve transition-colors duration-300 "
               >
                 Изпрати запитване
               </button>
