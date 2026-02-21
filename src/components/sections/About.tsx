@@ -58,7 +58,14 @@ export function About() {
         </div>
 
         {/* Image placeholder */}
-        <div className="md:order-1 aspect-[4/3] rounded-2xl bg-neutral-100 overflow-hidden ring-1 ring-black/5" />
+        <div className="md:order-1 aspect-[4/3] rounded-2xl overflow-hidden ring-1 ring-black/5">
+          <img
+            src="/images/about/about.jpeg"
+            alt="Pilates Reformer training at Euphoria studio in Blagoevgrad"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
       </div>
     </section>
   );
