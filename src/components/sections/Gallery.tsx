@@ -1,35 +1,56 @@
+type GalleryItem = {
+  id: number;
+  type: "image" | "video";
+  src: string;
+  alt: string;
+  className: string;
+};
+
 export function Gallery() {
-  const items = [
+  const item: GalleryItem[] = [
     {
       id: 1,
-      className: "col-span-2 row-span-12 lg:col-span-2 lg:row-span-18",
+      type: "video",
+      src: "/images/gallery/gallery-1.mp4",
+      alt: "Жена изпълнява упражнение на Pilates Reformer в модерно студио",
+      className: "col-span-2 row-span-12 lg:col-span-2 lg:row-span-16",
     },
-
     {
       id: 2,
+      type: "image",
+      src: "/images/gallery/gallery-2.webp",
+      alt: "Двойка в EMS костюми позират в студиото",
       className: "col-span-1 row-span-8 lg:col-span-1 lg:row-span-8",
     },
     {
       id: 3,
-      className: "col-span-1 row-span-8 lg:col-span-1 lg:row-span-10",
-    },
-
-    {
-      id: 4,
-      className: "col-span-2 row-span-10 lg:col-span-1 lg:row-span-12",
-    },
-
-    {
-      id: 5,
-      className: "col-span-1 row-span-10 lg:col-span-1 lg:row-span-14",
-    },
-
-    {
-      id: 6,
+      type: "video",
+      src: "/images/gallery/gallery-3.mp4",
+      alt: "Майка тренира с EMS оборудване, докато държи бебето си",
       className: "col-span-1 row-span-8 lg:col-span-1 lg:row-span-8",
     },
+    {
+      id: 4,
+      type: "image",
+      src: "/images/gallery/gallery-4.webp",
+      alt: "Две жени тренират на Pilates Reformer с помощта на ластици",
+      className: "col-span-2 row-span-12 lg:col-span-1 lg:row-span-16",
+    },
+    {
+      id: 5,
+      type: "image",
+      src: "/images/gallery/gallery-5.webp",
+      alt: "Клиент изпълнява упражнение под наблюдение на треньор",
+      className: "col-span-1 row-span-6 lg:col-span-1 lg:row-span-11",
+    },
+    {
+      id: 6,
+      type: "image",
+      src: "/images/gallery/gallery-6.webp",
+      alt: "Pilates Reformer тренировка в студиото",
+      className: "col-span-1 row-span-6 lg:col-span-1 lg:row-span-9",
+    },
   ];
-
   return (
     <section
       id="gallery"
@@ -54,11 +75,31 @@ export function Gallery() {
         </div>
 
         <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[20px] mt-10">
-          {items.map((item) => (
+          {item.map((galleryItem) => (
             <li
-              key={item.id}
-              className={`${item.className} rounded-2xl bg-neutral-200 overflow-hidden`}
-            ></li>
+              key={galleryItem.id}
+              className={`${galleryItem.className} group rounded-2xl bg-neutral-200 overflow-hidden transition-shadow duration-300 hover:shadow-lg`}
+            >
+              {galleryItem.type === "image" ? (
+                <img
+                  src={galleryItem.src}
+                  alt={galleryItem.alt}
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              ) : (
+                <video
+                  className="h-full w-full object-cover transition duration-500 group-hover:brightness-90"
+                  autoPlay
+                  muted
+                  playsInline
+                  loop
+                  preload="metadata"
+                >
+                  <source src={galleryItem.src} type="video/mp4" />
+                </video>
+              )}
+            </li>
           ))}
         </ul>
       </div>
