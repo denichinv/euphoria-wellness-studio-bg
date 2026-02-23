@@ -4,13 +4,13 @@ export function Hero() {
     "group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-full hover:bg-accent-blush transition-all duration-300 shadow-lg hover:shadow-xl";
 
   const desktopImages = [
-    "/images/hero/hero-desktop.jpeg",
-    "/images/hero/hero-desktop-2.jpeg",
+    "/images/hero/hero-desktop.webp",
+    "/images/hero/hero-desktop-2.webp",
   ] as const;
 
   const mobileImages = [
-    "/images/hero/hero-mobile.jpeg",
-    "/images/hero/hero-mobile-2.jpeg",
+    "/images/hero/hero-mobile-2.webp",
+    "/images/hero/hero-mobile.webp",
   ] as const;
 
   const [active, setActive] = useState(0);
