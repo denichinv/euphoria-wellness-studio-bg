@@ -6,7 +6,7 @@ export function Services() {
     <section className="py-24 bg-surface" id="services">
       <div className="max-w-6xl mx-auto px-4 text-center">
         {/* Badge */}
-        <p className="inline-flex items-center rounded-full bg-accent-blush px-4 py-2 text-sm uppercase tracking-[0.2em] text-neutral-900">
+        <p className="inline-flex items-center  px-4 py-2 text-sm uppercase tracking-widest leading-relaxed text-accent-mauve">
           УСЛУГИ
         </p>
 
