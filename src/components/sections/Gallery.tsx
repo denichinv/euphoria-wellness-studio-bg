@@ -13,7 +13,7 @@ export function Gallery() {
       type: "video",
       src: "/images/gallery/gallery-1.mp4",
       alt: "Жена изпълнява упражнение на Pilates Reformer в модерно студио",
-      className: "col-span-2 row-span-12 lg:col-span-2 lg:row-span-16",
+      className: "col-span-2 row-span-6 lg:col-span-2 lg:row-span-16",
     },
     {
       id: 2,
@@ -34,7 +34,7 @@ export function Gallery() {
       type: "image",
       src: "/images/gallery/gallery-4.webp",
       alt: "Две жени тренират на Pilates Reformer с помощта на ластици",
-      className: "col-span-2 row-span-12 lg:col-span-1 lg:row-span-16",
+      className: "col-span-2 row-span-6 lg:col-span-1 lg:row-span-16",
     },
     {
       id: 5,
@@ -48,7 +48,7 @@ export function Gallery() {
       type: "image",
       src: "/images/gallery/gallery-6.webp",
       alt: "Pilates Reformer тренировка в студиото",
-      className: "col-span-1 row-span-6 lg:col-span-1 lg:row-span-9",
+      className: "col-span-1 row-span-6 lg:col-span-1 lg:row-span-7",
     },
   ];
   return (
