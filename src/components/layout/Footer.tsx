@@ -72,6 +72,7 @@ export function Footer() {
                 <li>
                   <a
                     href="tel:+359897869293"
+                    aria-label="Обади се на Euphoria"
                     className="transition-colors hover:text-accent-blush focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blush/40"
                   >
                     +359 897 869 293
@@ -80,6 +81,7 @@ export function Footer() {
                 <li>
                   <a
                     href="mailto:xbodyeuphoria.wellness.studio@gmail.com"
+                    aria-label="Изпрати имейл до Euphoria"
                     className="break-all transition-colors hover:text-accent-blush focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blush/40"
                   >
                     xbodyeuphoria.wellness.studio@gmail.com

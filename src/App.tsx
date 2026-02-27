@@ -8,11 +8,13 @@ import { Footer } from "./components/layout/Footer";
 export default function App() {
   return (
     <>
-      <Hero />
-      <Services />
-      <About />
-      <Gallery />
-      <Contact />
+      <main>
+        <Hero />
+        <Services />
+        <About />
+        <Gallery />
+        <Contact />
+      </main>
       <Footer />
     </>
   );

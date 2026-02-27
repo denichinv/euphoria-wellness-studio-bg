@@ -74,7 +74,7 @@ export function Contact() {
                 <Clock />
               </div>
               <div>
-                <h4 className="text-gray-900 mb-1">Работно време</h4>
+                <h3 className="text-gray-900 mb-1">Работно време</h3>
                 <p className="text-gray-600">
                   Понеделник – Петък: 08:00 – 20:00
                 </p>
@@ -84,26 +84,29 @@ export function Contact() {
             </li>
 
             <li className={listStyle}>
-              <a href="tel:+359897869293">
+              <a href="tel:+359897869293" aria-label="Обади се на Euphoria">
                 <div className={divStyle}>
                   <Phone size={20} />
                 </div>
               </a>
               <div>
-                <h4 className="text-gray-900 mb-1">Телефон</h4>
+                <h3 className="text-gray-900 mb-1">Телефон</h3>
 
                 <p className="text-gray-600">+359 897 869 293</p>
               </div>
             </li>
 
             <li className={listStyle}>
-              <a href="mailto:xbodyeuphoria.wellness.studio@gmail.com">
+              <a
+                href="mailto:xbodyeuphoria.wellness.studio@gmail.com"
+                aria-label="Изпрати имейл до Euphoria"
+              >
                 <div className={divStyle}>
                   <Mail size={20} />
                 </div>
               </a>
               <div>
-                <h4 className="text-gray-900 mb-1">Имейл</h4>
+                <h3 className="text-gray-900 mb-1">Имейл</h3>
                 <p className="text-gray-600">
                   xbodyeuphoria.wellness.studio@gmail.com
                 </p>
@@ -113,6 +116,7 @@ export function Contact() {
             <li className={listStyle}>
               <a
                 href="https://instagram.com/xbody_euphoria"
+                aria-label="Instagram профил на Euphoria"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -121,7 +125,7 @@ export function Contact() {
                 </div>
               </a>
               <div>
-                <h4 className="text-gray-900 mb-1">Последвайте ни</h4>
+                <h3 className="text-gray-900 mb-1">Последвайте ни</h3>
                 <p className="text-gray-600">@xbody_euphoria</p>
               </div>
             </li>
