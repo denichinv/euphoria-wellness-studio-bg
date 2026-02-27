@@ -96,6 +96,7 @@ export function Gallery() {
                   playsInline
                   loop
                   preload="metadata"
+                  aria-hidden="true"
                 >
                   <source src={galleryItem.src} type="video/mp4" />
                 </video>
