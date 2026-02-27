@@ -17,7 +17,9 @@ export function Footer() {
             <img
               src="/images/brand/logo-footer.png"
               alt="Лого на Euphoria Pilates"
-              className="h-20 mt-4 opacity-90 transition-opacity hover:opacity-100"
+              width={80}
+              height={80}
+              className=" mt-4 opacity-90 transition-opacity hover:opacity-100"
             />
           </div>
 
