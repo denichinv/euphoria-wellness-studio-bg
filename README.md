@@ -1,6 +1,6 @@
 # Euphoria — XBody & Pilates Reformer Studio
 
-A modern, single-page marketing website for **Euphoria**, a wellness studio in Blagoevgrad, Bulgaria offering XBODY EMS and Pilates Reformer sessions.
+A modern, production-ready marketing website for **Euphoria**, a boutique wellness studio in **Blagoevgrad, Bulgaria** offering **XBody EMS** and **Pilates Reformer** sessions.
 
 > This repository is publicly visible for portfolio demonstration purposes only.  
 > The design, branding, and business identity belong to Euphoria Wellness Studio.
@@ -13,163 +13,139 @@ https://euphoria-wellness.netlify.app/
 
 ---
 
-## Tech Stack
+## 🧠 Project Overview
+
+The goal of this project was to build a **clean, premium marketing website** for a boutique fitness studio while focusing on:
+
+- performance
+- accessibility
+- modular React architecture
+- production-ready deployment
+
+The website provides information about services, studio atmosphere, and contact options for potential clients.
+
+---
+
+## ✨ Features
+
+• Premium responsive UI designed for a boutique wellness brand  
+• Modular React component architecture with **TypeScript**  
+• Design token system for scalable styling (**CSS variables + Tailwind**)  
+• Optimized media and layout for fast loading performance  
+• Accessibility-aware semantic HTML structure  
+• Contact form powered by **Netlify Forms** (no backend required)  
+• Production deployment with **Netlify**
+
+---
+
+## 🧩 Tech Stack
 
 | Tool | Purpose |
-|---|---|
-| React 19 | UI framework |
+|------|--------|
+| React | Component-based UI |
 | TypeScript | Type safety |
-| Vite 7 | Dev server & bundler |
-| Tailwind CSS 3 | Styling |
-| Lucide React | Icons |
-| Vitest + Testing Library | Unit tests |
-| Netlify | Hosting & form handling |
+| Vite | Fast development environment |
+| TailwindCSS | Utility-first styling |
+| Vitest | Unit & integration testing |
+| Testing Library | Component testing |
+| Netlify | Deployment & hosting |
 
 ---
 
-## Project Structure
+## 🏗 Architecture
+
+The project follows a **section-based architecture**, where each major page section is implemented as an independent React component with corresponding tests.
 
 ```
-src/
-├── components/
-│   ├── layout/
-│   │   └── Footer.tsx
-│   ├── sections/
-│   │   ├── Hero.tsx / Hero.test.tsx
-│   │   ├── Services.tsx / Services.test.tsx
-│   │   ├── About.tsx / About.test.tsx
-│   │   ├── Gallery.tsx / Gallery.test.tsx
-│   │   └── Contact.tsx / Contact.test.tsx
-│   └── ui/
-│       └── ServiceCard.tsx
-├── data/
-│   └── services.ts
-├── styles/
-│   └── theme.css
-├── test/
-│   └── setup.ts
-├── App.tsx
-├── main.tsx
-└── index.css
+src
+ ├ components
+ │  ├ layout
+ │  ├ sections
+ │  └ ui
+ ├ data
+ ├ styles
+ └ test
 ```
+
+This structure improves:
+
+• maintainability  
+• scalability  
+• component reusability
 
 ---
 
-## Getting Started
+## ⚡ Performance & Accessibility
 
-### Prerequisites
+Lighthouse audit results:
 
-- Node.js ≥ 20.19.0
-- npm
+| Metric | Score |
+|------|------|
+| Performance | 90+ |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 100 |
 
-### Install dependencies
+Accessibility testing includes automated checks validating semantic HTML, ARIA attributes, and user interface accessibility patterns.
 
-```bash
-npm install
+---
+
+## 📬 Contact Form
+
+The contact form uses **Netlify Forms**, enabling form submissions without a custom backend.
+
+Submissions are automatically handled by Netlify and can be managed through the Netlify dashboard.
+
+---
+
+## 🚀 Deployment
+
+The project is deployed using **Netlify**.
+
+Build command:
+
 ```
-
-### Start development server
-
-```bash
-npm run dev
-```
-
-### Build for production
-
-```bash
 npm run build
 ```
 
-### Preview production build
+Publish directory:
 
-```bash
-npm run preview
+```
+dist
 ```
 
 ---
 
-## Testing
+## 📂 Repository Purpose
 
-Tests are written with [Vitest](https://vitest.dev/) and [@testing-library/react](https://testing-library.com/).
+This repository is part of a **front-end developer portfolio** and demonstrates:
 
-```bash
-# Run tests (watch mode)
-npm test
-
-# Run tests with UI
-npm run test:ui
-```
-
-Each section component has a corresponding `.test.tsx` file that covers:
-- Correct semantic HTML structure (headings, landmarks)
-- ARIA attributes (`aria-labelledby`, `id`)
-- Expected content and interactions
-- Form submission and success state (Contact)
+- React + TypeScript development
+- UI architecture for marketing websites
+- responsive design
+- accessibility practices
+- testing workflows
+- production deployment
 
 ---
 
-## Sections
-
-| Section | Description |
-|---|---|
-| **Hero** | Full-screen image carousel with CTAs |
-| **Services** | Cards for XBODY EMS and Pilates Reformer |
-| **About** | Studio overview with feature highlights |
-| **Gallery** | Masonry-style grid with images and video |
-| **Contact** | Contact form with Netlify integration + Google Maps embed |
-| **Footer** | Navigation, contact info, branding |
-
----
-
-## Design Tokens
-
-Custom CSS variables defined in `src/styles/theme.css` and extended in `tailwind.config.js`:
-
-| Token | Value | Usage |
-|---|---|---|
-| `--surface` | `#f5f1ed` | Card/section backgrounds |
-| `--surface-light` | `#f8f8f8` | Alternate section backgrounds |
-| `--accent-blush` | `#e8d5d5` | Hover states, highlights |
-| `--accent-mauve` | `#b4948f` | Labels, icons, primary accents |
-
-Fonts: **Cormorant Garamond** (headings) + **Inter** (body), both via Google Fonts.
-
----
-
-## Deployment
-
-The site is deployed on [Netlify](https://www.netlify.com/). Build settings are defined in `netlify.toml`:
-
-```toml
-[build]
-  command = "npm run build"
-  publish = "dist"
-```
-
-### Contact Form
-
-The contact form uses Netlify Forms. The hidden form in `index.html` registers the form with Netlify at build time. No backend required.
-
----
-
-## Linting
-
-```bash
-npm run lint
-```
-
-ESLint is configured with TypeScript and React Hooks rules via `eslint.config.js`.
-
----
-
-## Author
+## 👨‍💻 Author
 
 **Vilizar Denichin**
 
+🌍 Portfolio  
+https://vilizardenichin.netlify.app
+
+💼 LinkedIn  
+https://linkedin.com/in/VilizarDenichin
+
+📧 Email  
+denichinv@gmail.com
+
+📍 Location: Dunstable, Bedfordshire, UK
+
 ---
 
-## License
+## 📄 License
 
-Copyright © 2025 Vilizar Denichin. All rights reserved.
-
-This project and its source code are proprietary. No part of this codebase may be copied, modified, distributed, or used in any form without explicit written permission from the author.
+This project is shared publicly for **portfolio and demonstration purposes only**.
