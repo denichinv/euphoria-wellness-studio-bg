@@ -1,3 +1,4 @@
+import { LanguageToggle } from "../../components/ui/LangueageToggle";
 import { useEffect, useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 import { bg } from "../../i18n/bg";
@@ -56,6 +57,9 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
 
       <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20 z-10 text-center">
+        <div className="absolute top-6 right-6 z-20 fixed">
+          <LanguageToggle />
+        </div>
         {/* Badge */}
         <p className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm tracking-wide text-white/90 backdrop-blur-sm border border-white/20">
           {t.badge}
