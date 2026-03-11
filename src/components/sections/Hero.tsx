@@ -34,7 +34,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden min-h-screen flex items-center justify-center"
+      className="relative overflow-hidden min-h-[100dvh] flex items-center justify-center"
       id="hero"
     >
       <div className="absolute inset-0 z-0">
@@ -57,7 +57,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
 
       <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20 z-10 text-center">
-        <div className="absolute top-6 right-6 z-20 fixed">
+        <div className="absolute top-6 right-6 sm:top-8 sm:right-8 z-20">
           <LanguageToggle />
         </div>
         {/* Badge */}
