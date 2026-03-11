@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+import { useLanguage } from "../../context/LanguageContext.tsx";
 export function Hero() {
+  const { language } = useLanguage();
+
   const button =
     "group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-full hover:bg-accent-blush transition-all duration-300 shadow-lg hover:shadow-xl";
 
