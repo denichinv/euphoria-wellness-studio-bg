@@ -1,3 +1,5 @@
+import { services } from "../data/services";
+
 export const bg = {
   hero: {
     badge: "Blagoevgrad Wellness Studio",
@@ -7,5 +9,11 @@ export const bg = {
       "Индивидуални XBody EMS и Pilates Reformer сесии в спокойна и комфортна среда.",
     ctaPrimary: "Запази час",
     ctaSecondary: "Виж услугите",
+  },
+  services: {
+    badge: "УСЛУГИ",
+    heading: "Индивидуален подход към всяко тяло",
+    description:
+      "Изберете от нашите специализирани тренировъчни методи, създадени да ви помогнат да постигнете своите цели.",
   },
 };

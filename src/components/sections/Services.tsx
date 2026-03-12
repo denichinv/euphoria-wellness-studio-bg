@@ -1,24 +1,28 @@
 import { ServiceCard } from "../ui/ServiceCard";
 import { services } from "../../data/services";
+import { bg } from "../../i18n/bg";
+import { en } from "../../i18n/en";
+import { useLanguage } from "../../context/LanguageContext";
 
 export function Services() {
+  const { language } = useLanguage();
+  const t = language === "bg" ? bg.services : en.services;
   return (
     <section className="py-24 bg-surface" id="services">
       <div className="max-w-6xl mx-auto px-4 text-center">
         {/* Badge */}
         <p className="inline-flex items-center  px-4 py-2 text-sm uppercase tracking-widest leading-relaxed text-accent-mauve">
-          УСЛУГИ
+          {t.badge}
         </p>
 
         {/* Heading */}
         <h2 className="text-4xl md:text-6xl text-neutral-900 mb-6 mt-6">
-          Индивидуален подход към всяко тяло
+          {t.heading}
         </h2>
 
         {/* Description */}
         <p className="text-lg text-neutral-600 max-w-2xl mx-auto mt-6 leading-relaxed">
-          Изберете от нашите специализирани тренировъчни методи, създадени да ви
-          помогнат да постигнете своите цели.
+          {t.description}
         </p>
 
         {/* Grid */}
