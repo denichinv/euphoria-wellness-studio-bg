@@ -1,19 +1,17 @@
 import { Award, Users } from "lucide-react";
+import { useLanguage } from "../../context/LanguageContext";
+import { bg } from "../../i18n/bg";
+import { en } from "../../i18n/en";
 
-const FEATURES = [
-  {
-    title: "Сертифицирани треньори",
-
-    Icon: Award,
-  },
-  {
-    title: "Малки тренировъчни групи",
-
-    Icon: Users,
-  },
-] as const;
+const ICONS = {
+  award: Award,
+  users: Users,
+} as const;
 
 export function About() {
+  const { language } = useLanguage();
+  const t = language === "bg" ? bg.about : en.about;
+
   return (
     <section
       id="about"
@@ -24,40 +22,40 @@ export function About() {
         {/* Text */}
         <div className="md:order-2">
           <p className="text-accent-mauve uppercase tracking-widest leading-relaxed mb-4">
-            За нас
+            {t.badge}
           </p>
 
           <h2
             id="about-title"
             className="text-3xl md:text-5xl text-gray-900 mb-6"
           >
-            Вашият път към здраве и баланс започва тук
+            {t.heading}
           </h2>
 
           <p className="text-lg text-gray-600 mb-10 leading-relaxed">
-            В Euphoria вярваме в персоналния подход към движението и грижата за
-            тялото. Нашето студио в Благоевград създава спокойна и подкрепяща
-            среда, в която можете да се фокусирате върху своите цели.
-            Комбинираме съвременни технологии и доказани методи, за да
-            постигнете устойчиви резултати и усещане за баланс.
+            {t.description}
           </p>
 
           {/* Features */}
           <div className="grid gap-3 sm:grid-cols-2">
-            {FEATURES.map(({ title, Icon }) => (
-              <div key={title} className="flex gap-4">
-                <div className="w-12 h-12 rounded-full bg-surface flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-6 h-6 text-accent-mauve" />
+            {t.features.map((feature) => {
+              const Icon = ICONS[feature.icon as keyof typeof ICONS];
+
+              return (
+                <div key={feature.title} className="flex gap-4">
+                  <div className="w-12 h-12 rounded-full bg-surface flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-6 h-6 text-accent-mauve" />
+                  </div>
+                  <div>
+                    <p className="text-gray-600">{feature.title}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-gray-600 ">{title}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
-        {/* Image placeholder */}
+        {/* Image */}
         <div className="md:order-1 aspect-[4/3] rounded-2xl overflow-hidden ring-1 ring-black/5">
           <img
             src="/images/about/about.jpeg"

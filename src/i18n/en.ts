@@ -43,4 +43,20 @@ export const en = {
       ],
     },
   } satisfies Record<"xbody" | "pilates", ServiceCardContent>,
+  about: {
+    badge: "ABOUT US",
+    heading: "Your Wellness Journey Starts Here",
+    description:
+      "At Euphoria, we believe in a personalized approach to movement and body care. Our studio in Blagoevgrad creates a calm and supportive environment where you can focus on your goals. We combine modern technology with proven methods to help you achieve lasting results and a true sense of balance.",
+    features: [
+      {
+        title: "Certified Trainers",
+        icon: "award",
+      },
+      {
+        title: "Small Training Groups",
+        icon: "users",
+      },
+    ],
+  },
 };
