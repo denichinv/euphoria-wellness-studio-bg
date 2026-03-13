@@ -1,4 +1,8 @@
-import { services } from "../data/services";
+type ServiceCardContent = {
+  title: string;
+  description: string;
+  features: string[];
+};
 
 export const en = {
   hero: {
@@ -16,4 +20,27 @@ export const en = {
     description:
       "Choose from our specialized training methods designed to help you reach your personal goals.",
   },
+  serviceCards: {
+    xbody: {
+      title: "XBODY EMS",
+      description:
+        "The EMS method combines innovative technology and intelligent resistance to deliver a full-body workout in just 20 minutes.",
+      features: [
+        "20-minute sessions",
+        "Deep muscle activation",
+        "Fast visible results",
+      ],
+    },
+
+    pilates: {
+      title: "Pilates Reformer",
+      description:
+        "Pilates Reformer provides intelligent resistance through smooth and controlled movements that build strength, improve flexibility and restore natural balance.",
+      features: [
+        "Deep muscle stability",
+        "Improved posture and control",
+        "Greater flexibility and balance",
+      ],
+    },
+  } satisfies Record<"xbody" | "pilates", ServiceCardContent>,
 };

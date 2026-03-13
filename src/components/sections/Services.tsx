@@ -6,12 +6,15 @@ import { useLanguage } from "../../context/LanguageContext";
 
 export function Services() {
   const { language } = useLanguage();
+
   const t = language === "bg" ? bg.services : en.services;
+  const cards = language === "bg" ? bg.serviceCards : en.serviceCards;
+
   return (
     <section className="py-24 bg-surface" id="services">
       <div className="max-w-6xl mx-auto px-4 text-center">
         {/* Badge */}
-        <p className="inline-flex items-center  px-4 py-2 text-sm uppercase tracking-widest leading-relaxed text-accent-mauve">
+        <p className="inline-flex items-center px-4 py-2 text-sm uppercase tracking-widest leading-relaxed text-accent-mauve">
           {t.badge}
         </p>
 
@@ -25,17 +28,21 @@ export function Services() {
           {t.description}
         </p>
 
-        {/* Grid */}
+        {/* Services Grid */}
         <div className="grid gap-6 md:grid-cols-2 mt-16">
-          {services.map((service) => (
-            <ServiceCard
-              key={service.id}
-              title={service.title}
-              description={service.description}
-              image={service.image}
-              features={service.features}
-            />
-          ))}
+          {services.map((service) => {
+            const content = cards[service.id];
+
+            return (
+              <ServiceCard
+                key={service.id}
+                title={content.title}
+                description={content.description}
+                image={service.image}
+                features={content.features}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
