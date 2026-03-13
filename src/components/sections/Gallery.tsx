@@ -1,3 +1,7 @@
+import { useLanguage } from "../../context/LanguageContext";
+import { bg } from "../../i18n/bg";
+import { en } from "../../i18n/en";
+
 type GalleryItem = {
   id: number;
   type: "image" | "video";
@@ -7,48 +11,50 @@ type GalleryItem = {
 };
 
 export function Gallery() {
+  const { language } = useLanguage();
+  const t = language === "bg" ? bg.gallery : en.gallery;
+
   const item: GalleryItem[] = [
     {
       id: 1,
       type: "video",
       src: "/images/gallery/gallery-1.mp4",
-      alt: "Жена изпълнява упражнение на Pilates Reformer в модерно студио",
+      alt: t.alts.reformer,
       className: "col-span-2 row-span-10 lg:col-span-2 lg:row-span-16",
     },
     {
       id: 2,
       type: "image",
       src: "/images/gallery/gallery-2.webp",
-      alt: "Двойка в EMS костюми позират в студиото",
+      alt: t.alts.emsCoaches,
       className: "col-span-1 row-span-8 lg:col-span-1 lg:row-span-12",
     },
     {
       id: 3,
       type: "video",
       src: "/images/gallery/gallery-3.mp4",
-      alt: "Майка тренира с EMS оборудване, докато държи бебето си",
+      alt: t.alts.emsMother,
       className: "col-span-1 row-span-8 lg:col-span-1 lg:row-span-12",
     },
     {
       id: 4,
       type: "image",
       src: "/images/gallery/gallery-4.webp",
-      alt: "Две жени тренират на Pilates Reformer с помощта на ластици",
+      alt: t.alts.reformerDuo,
       className: "col-span-2 row-span-7 lg:col-span-1 lg:row-span-16",
     },
-
     {
       id: 5,
       type: "image",
       src: "/images/gallery/gallery-5.webp",
-      alt: "Клиент изпълнява упражнение под наблюдение на треньор",
+      alt: t.alts.kettlebell,
       className: "col-span-1 row-span-6 lg:col-span-1 lg:row-span-12",
     },
     {
       id: 6,
       type: "image",
       src: "/images/gallery/gallery-6.webp",
-      alt: "Pilates Reformer тренировка в студиото",
+      alt: t.alts.reformerTraining,
       className: "col-span-1 row-span-6 lg:col-span-1 lg:row-span-7",
     },
   ];
@@ -61,17 +67,16 @@ export function Gallery() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-accent-mauve uppercase tracking-widest text-sm mb-4 ">
-            ГАЛЕРИЯ
+            {t.badge}
           </p>
           <h2
             id="gallery-title"
             className="text-3xl md:text-5xl text-gray-900 mb-4 "
           >
-            Потопете се в атмосферата на нашето студио
+            {t.heading}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Спокойна и модерна среда, създадена с грижа за вашия напредък и
-            баланс.
+            {t.description}
           </p>
         </div>
 

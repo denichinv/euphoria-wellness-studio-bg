@@ -59,4 +59,21 @@ export const en = {
       },
     ],
   },
+  gallery: {
+    badge: "GALLERY",
+    heading: "A Glimpse into Our Studio",
+    description:
+      "Explore the atmosphere of Euphoria Wellness Studio and discover the space where modern technology meets personalized wellness.",
+    alts: {
+      reformer:
+        "Woman performing an exercise on a Pilates Reformer in a modern studio",
+      emsCoaches: "Coaches wearing EMS suits in the studio",
+      emsMother: "Mother training with EMS equipment while holding her baby",
+      reformerDuo:
+        "Two women training on a Pilates Reformer with resistance straps",
+      kettlebell:
+        "Client performing a kettlebell exercise under trainer supervision",
+      reformerTraining: "Pilates Reformer training session in the studio",
+    },
+  },
 };
