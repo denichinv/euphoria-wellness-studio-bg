@@ -24,7 +24,7 @@ export const en = {
     xbody: {
       title: "XBODY EMS",
       description:
-        "The EMS method combines innovative technology and intelligent resistance to deliver a full-body workout in just 20 minutes.",
+        "The EMS method combines innovative technology and intelligent resistance to deliver a full-body workout in just 20 minutes. Maximum efficiency in minimal time.",
       features: [
         "20-minute sessions",
         "Deep muscle activation",
