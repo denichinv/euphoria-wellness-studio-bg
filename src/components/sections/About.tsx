@@ -59,7 +59,7 @@ export function About() {
         <div className="md:order-1 aspect-[4/3] rounded-2xl overflow-hidden ring-1 ring-black/5">
           <img
             src="/images/about/about.jpeg"
-            alt="Pilates Reformer training at Euphoria studio in Blagoevgrad"
+            alt={t.alt}
             className="w-full h-full object-cover"
             loading="lazy"
           />
