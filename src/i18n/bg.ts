@@ -75,4 +75,48 @@ export const bg = {
       reformerTraining: "Pilates Reformer тренировка в студиото",
     },
   },
+  contact: {
+    badge: "СВЪРЖЕТЕ СЕ С НАС",
+    heading: "Готови ли сте за своята трансформация?",
+    description:
+      "    Запазете своята първа сесия и усетете разликата, която персонализираният подход може да направи.",
+    workingHours: {
+      title: "Работно време",
+      days: ["Понеделник - Петък", "Събота", "Неделя"],
+      hours: ["8:00 - 20:00", "10:00 - 18:00", "Почивен ден"],
+    },
+    phone: {
+      title: "Телефон",
+      number: "+359 897 869 293",
+      aria: "Обади се на Euphoria Wellness Studio",
+    },
+    email: {
+      title: "Имейл",
+      address: "xbodyeuphoria.wellness.studio@gmail.com",
+      aria: "Изпрати имейл до Euphoria Wellness Studio",
+    },
+    social: {
+      title: "Последвайте ни",
+      instagram: "@xbody_euphoria",
+    },
+    mapTitle: "Намерете ни на картата",
+    contactForm: {
+      title: "Свържете се с нас още днес !",
+      name: "Име и фамилия",
+      namePlaceholder: "Вашето име",
+      email: "Имейл адрес",
+      emailPlaceholder: "Вашият имейл",
+      phone: "Телефонен номер",
+      phonePlaceholder: "Вашият телефон",
+      service: "Изберете услуга",
+      serviceOptions: ["XBODY EMS", "Pilates Reformer", "Други"],
+      message: "Съобщение (по желание)",
+      messagePlaceholder: "Разкажете ни повече за вашите цели...",
+      submitButton: "Изпрати запитване",
+    },
+    contactFormSuccess: {
+      title: " Благодарим ви! Ще се свържем с вас възможно най-скоро.",
+      submitButton: "Изпрати ново запитване",
+    },
+  },
 };

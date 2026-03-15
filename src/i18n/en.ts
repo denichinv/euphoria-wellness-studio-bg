@@ -77,4 +77,56 @@ export const en = {
       reformerTraining: "Pilates Reformer training session in the studio",
     },
   },
+  contact: {
+    badge: "GET IN TOUCH",
+
+    heading: "Ready for your transformation?",
+
+    description:
+      "Book your first session and experience the difference a personalized approach can make.",
+
+    workingHours: {
+      title: "Opening Hours",
+      days: ["Monday - Friday", "Saturday", "Sunday"],
+      hours: ["8:00 - 20:00", "09:30 - 14:00", "Closed"],
+    },
+
+    phone: {
+      title: "Phone",
+      number: "+359 897 869 293",
+      aria: "Call Euphoria Wellness Studio",
+    },
+
+    email: {
+      title: "Email",
+      address: "xbodyeuphoria.wellness.studio@gmail.com",
+      aria: "Send an email to Euphoria Wellness Studio",
+    },
+
+    social: {
+      title: "Follow Us",
+      instagram: "@xbody_euphoria",
+    },
+    mapTitle: "Find us on the map",
+
+    contactForm: {
+      title: "Get in touch today",
+      name: "Full Name",
+      namePlaceholder: "Your name",
+      email: "Email Address",
+      emailPlaceholder: "Your email",
+      phone: "Phone Number",
+      phonePlaceholder: "Your phone number",
+      service: "Select a service",
+      serviceOptions: ["XBODY EMS", "Pilates Reformer", "Other"],
+      message: "Message (optional)",
+      messagePlaceholder: "Tell us more about your goals...",
+      submitButton: "Send request",
+    },
+
+    contactFormSuccess: {
+      title: "Thank you! We'll get back to you shortly.",
+      submitButton: "Send another request",
+    },
+  },
 };

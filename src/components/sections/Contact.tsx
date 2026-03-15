@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Phone, Mail, Instagram, Clock } from "lucide-react";
+import { useLanguage } from "../../context/LanguageContext";
+import { en } from "../../i18n/en";
+import { bg } from "../../i18n/bg";
 
 export function Contact() {
+  const { language } = useLanguage();
+  const content = language === "en" ? en.contact : bg.contact;
+
   const divStyle: string =
     "w-12 h-12 rounded-full bg-surface flex items-center justify-center flex-shrink-0 hover:bg-accent-blush transition-color text-accent-mauve hover:text-white";
 
@@ -53,19 +59,18 @@ export function Contact() {
         {/* Left column */}
         <div>
           <p className="text-accent-mauve uppercase tracking-widest text-sm mb-2">
-            СВЪРЖЕТЕ СЕ С НАС
+            {content.badge}
           </p>
 
           <h2
             id="contact-title"
             className="text-3xl md:text-5xl text-gray-900 mb-6 "
           >
-            Готови ли сте за своята трансформация?
+            {content.heading}
           </h2>
 
           <p className="text-lg text-gray-600 m-8 leading-relaxed ">
-            Запазете своята първа сесия и усетете разликата, която
-            персонализираният подход може да направи.
+            {content.description}
           </p>
 
           <ul className="mt-2 space-y-4">
@@ -74,42 +79,49 @@ export function Contact() {
                 <Clock />
               </div>
               <div>
-                <h3 className="text-gray-900 mb-1">Работно време</h3>
+                <h3 className="text-gray-900 mb-1">
+                  {content.workingHours.title}
+                </h3>
                 <p className="text-gray-600">
-                  Понеделник – Петък: 08:00 – 20:00
+                  {content.workingHours.days[0]}:{" "}
+                  {content.workingHours.hours[0]}
                 </p>
-                <p className="text-gray-600">Събота: 09:30 – 14:00</p>
-                <p className="text-gray-600 ">Неделя: Почивен ден</p>
+                <p className="text-gray-600">
+                  {content.workingHours.days[1]}:{" "}
+                  {content.workingHours.hours[1]}
+                </p>
+                <p className="text-gray-600 ">
+                  {content.workingHours.days[2]}:{" "}
+                  {content.workingHours.hours[2]}
+                </p>
               </div>
             </li>
 
             <li className={listStyle}>
-              <a href="tel:+359897869293" aria-label="Обади се на Euphoria">
+              <a href="tel:+359897869293" aria-label={content.phone.aria}>
                 <div className={divStyle}>
                   <Phone size={20} />
                 </div>
               </a>
               <div>
-                <h3 className="text-gray-900 mb-1">Телефон</h3>
+                <h3 className="text-gray-900 mb-1">{content.phone.title}</h3>
 
-                <p className="text-gray-600">+359 897 869 293</p>
+                <p className="text-gray-600">{content.phone.number}</p>
               </div>
             </li>
 
             <li className={listStyle}>
               <a
                 href="mailto:xbodyeuphoria.wellness.studio@gmail.com"
-                aria-label="Изпрати имейл до Euphoria"
+                aria-label={content.email.aria}
               >
                 <div className={divStyle}>
                   <Mail size={20} />
                 </div>
               </a>
               <div>
-                <h3 className="text-gray-900 mb-1">Имейл</h3>
-                <p className="text-gray-600">
-                  xbodyeuphoria.wellness.studio@gmail.com
-                </p>
+                <h3 className="text-gray-900 mb-1">{content.email.title}</h3>
+                <p className="text-gray-600">{content.email.address}</p>
               </div>
             </li>
 
@@ -125,15 +137,15 @@ export function Contact() {
                 </div>
               </a>
               <div>
-                <h3 className="text-gray-900 mb-1">Последвайте ни</h3>
-                <p className="text-gray-600">@xbody_euphoria</p>
+                <h3 className="text-gray-900 mb-1">{content.social.title}</h3>
+                <p className="text-gray-600">{content.social.instagram}</p>
               </div>
             </li>
           </ul>
 
           <div className="mt-6">
             <iframe
-              title="Euphoria Studio location on Google Maps"
+              title={content.mapTitle}
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11856.862851080612!2d23.08025626533252!3d42.0171046396258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14aaf50037bd5417%3A0xff8ae402cc4aa9af!2sX%20Body%20Euphoria%20%26%20Pilates%20Reformer%20studio!5e0!3m2!1sen!2suk!4v1770937952841!5m2!1sen!2suk"
               className="w-full h-[300px] rounded-xl border"
               loading="lazy"
@@ -147,14 +159,14 @@ export function Contact() {
           {isSubmitted ? (
             <div className="space-y-6 ">
               <h3 className="text-2xl md:text-3xl text-gray-900 mb-6">
-                Благодарим ви! Ще се свържем с вас възможно най-скоро.
+                {content.contactFormSuccess.title}
               </h3>
               <button
                 type="button"
                 className="w-full py-4 bg-gray-900 text-white rounded-xl hover:bg-accent-mauve transition-colors duration-300"
                 onClick={() => setIsSubmitted(false)}
               >
-                Изпрати ново съобщение
+                {content.contactFormSuccess.submitButton}
               </button>
             </div>
           ) : (
@@ -169,16 +181,15 @@ export function Contact() {
               <input type="hidden" name="form-name" value="contact" />
               <input type="hidden" name="bot-field" />
               <h3 className="text-3xl md:text-4xl text-gray-900 mb-6">
-                Свържете се с нас още днес !
+                {content.contactForm.title}
               </h3>
               <div className={fieldStyle}>
                 <label htmlFor="name" className="block text-gray-900 mb-2">
-                  Име и фамилия
+                  {content.contactForm.name}
                 </label>
                 <input
                   type="text"
-                  placeholder="Вашето име
-"
+                  placeholder={content.contactForm.namePlaceholder}
                   id="name"
                   name="name"
                   value={name}
@@ -191,11 +202,11 @@ export function Contact() {
               </div>
               <div className={fieldStyle}>
                 <label htmlFor="email" className="block text-gray-900 mb-2">
-                  Имейл адрес
+                  {content.contactForm.email}
                 </label>
                 <input
                   type="email"
-                  placeholder="your@email.com"
+                  placeholder={content.contactForm.emailPlaceholder}
                   id="email"
                   name="email"
                   value={email}
@@ -208,11 +219,11 @@ export function Contact() {
               </div>
               <div className={fieldStyle}>
                 <label htmlFor="phone" className="block text-gray-900 mb-2">
-                  Телефонен номер
+                  {content.contactForm.phone}
                 </label>
                 <input
                   type="tel"
-                  placeholder="+359 XXX XXX XXX"
+                  placeholder={content.contactForm.phonePlaceholder}
                   id="phone"
                   name="phone"
                   value={phone}
@@ -224,7 +235,7 @@ export function Contact() {
               </div>
               <div className={fieldStyle}>
                 <label htmlFor="service" className="block text-gray-900 mb-2">
-                  Изберете услуга
+                  {content.contactForm.service}
                 </label>
                 <select
                   name="service"
@@ -235,14 +246,20 @@ export function Contact() {
                     setService(e.target.value);
                   }}
                 >
-                  <option value="pilates">Pilates Reformer</option>
-                  <option value="xbody">XBODY EMS</option>
-                  <option value="others">Други</option>
+                  <option value="pilates">
+                    {content.contactForm.serviceOptions[0]}
+                  </option>
+                  <option value="xbody">
+                    {content.contactForm.serviceOptions[1]}
+                  </option>
+                  <option value="others">
+                    {content.contactForm.serviceOptions[2]}
+                  </option>
                 </select>
               </div>
               <div className={fieldStyle}>
                 <label htmlFor="message" className="block text-gray-900 mb-2">
-                  Съобщение (по желание)
+                  {content.contactForm.message}
                 </label>
                 <textarea
                   name="message"
@@ -253,14 +270,14 @@ export function Contact() {
                   }}
                   className={inputsStyle}
                   rows={4}
-                  placeholder="Разкажете ни повече за вашите цели... "
+                  placeholder={content.contactForm.messagePlaceholder}
                 />
               </div>
               <button
                 type="submit"
                 className="w-full py-4 bg-gray-900 text-white rounded-xl hover:bg-accent-mauve transition-colors duration-300 "
               >
-                Изпрати запитване
+                {content.contactForm.submitButton}
               </button>
             </form>
           )}
