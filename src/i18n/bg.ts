@@ -119,4 +119,27 @@ export const bg = {
       submitButton: "Изпрати ново запитване",
     },
   },
+  footer: {
+    heading: " XBody Euphoria & Pilates Reformer",
+    description:
+      "  Баланс, сила и персонализирана грижа чрез Pilates Reformer и XBODY тренировки в Благоевград.",
+    alt: "Лого на Euphoria Wellness Studio в Благоевград",
+    navigation: {
+      title: "Навигация",
+      services: "Услуги",
+      about: "За нас",
+      gallery: "Галерия",
+      contact: "Контакти",
+    },
+    contact: {
+      title: "Контакти",
+      address: ["ул. „Илинден“ № 3", "2700 Благоевград, България"],
+      phone: "+359 897 869 293",
+      phoneAria: "Обади се на Euphoria",
+      email: "xbodyeuphoria.wellness.studio@gmail.com",
+      emailAria: "Изпрати имейл до Euphoria",
+    },
+    rights:
+      "Euphoria - XBODY & Pilates Reformer Studio. Всички права запазени.",
+  },
 };

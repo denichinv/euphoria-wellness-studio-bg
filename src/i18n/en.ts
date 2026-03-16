@@ -129,4 +129,29 @@ export const en = {
       submitButton: "Send another request",
     },
   },
+  footer: {
+    heading: "XBody Euphoria & Pilates Reformer",
+    description:
+      "Balance, strength, and personalized care through Pilates Reformer and XBODY training in Blagoevgrad.",
+    alt: "Euphoria Wellness Studio logo in Blagoevgrad",
+
+    navigation: {
+      title: "Navigation",
+      services: "Services",
+      about: "About Us",
+      gallery: "Gallery",
+      contact: "Contact",
+    },
+
+    contact: {
+      title: "Contact",
+      address: ["3 Ilinden St.", "2700 Blagoevgrad, Bulgaria"],
+      phone: "+359 897 869 293",
+      phoneAria: "Call Euphoria Wellness Studio",
+      email: "xbodyeuphoria.wellness.studio@gmail.com",
+      emailAria: "Send an email to Euphoria Wellness Studio",
+    },
+
+    rights: "Euphoria - XBODY & Pilates Reformer Studio. All rights reserved.",
+  },
 };
