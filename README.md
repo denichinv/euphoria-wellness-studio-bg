@@ -30,6 +30,8 @@ The website provides information about services, studio atmosphere, and contact 
 
 • Premium responsive UI designed for a boutique wellness brand  
 • Modular React component architecture with **TypeScript**  
+• Bilingual support (BG / EN) with dynamic language switching  
+• Centralized translation system using React Context  
 • Design token system for scalable styling (**CSS variables + Tailwind**)  
 • Optimized media and layout for fast loading performance  
 • Accessibility-aware semantic HTML structure  
@@ -74,6 +76,20 @@ This structure improves:
 • component reusability
 
 ---
+
+## 🌍 Internationalization
+
+The application includes a lightweight internationalization system supporting **Bulgarian and English**.
+
+• Language state managed globally via React Context  
+• Content separated from UI using structured translation files  
+• Dynamic rendering based on selected language  
+• Scalable approach for adding additional languages  
+
+This ensures a clean separation between content, structure, and presentation.
+
+---
+
 
 ## ⚡ Performance & Accessibility
 
