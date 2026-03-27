@@ -1,11 +1,9 @@
 import { LanguageToggle } from "../../components/ui/LangueageToggle";
 import { useEffect, useState } from "react";
-import { useLanguage } from "../../context/LanguageContext";
-import { bg } from "../../i18n/bg";
-import { en } from "../../i18n/en";
+import { useTranslation } from "../../hooks/useTranslation";
+
 export function Hero() {
-  const { language } = useLanguage();
-  const t = language === "bg" ? bg.hero : en.hero;
+  const { t } = useTranslation();
 
   const button =
     "group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-full hover:bg-accent-blush transition-all duration-300 shadow-lg hover:shadow-xl";
@@ -62,27 +60,27 @@ export function Hero() {
         </div>
         {/* Badge */}
         <p className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm tracking-wide text-white/90 backdrop-blur-sm border border-white/20">
-          {t.badge}
+          {t.hero.badge}
         </p>
 
         {/* Title */}
         <h1 className="mt-6 text-5xl md:text-7xl lg:text-8xl text-white mb-6 font-medium tracking-tight leading-tight">
-          {t.title} <br />
-          <span className="text-accent-blush"> {t.titleAccent} </span>
+          {t.hero.title} <br />
+          <span className="text-accent-blush"> {t.hero.titleAccent} </span>
         </h1>
 
         {/* Subtitle */}
         <p className="mt-4 text-lg md:text-xl leading-relaxed text-white/90 mb-10 max-w-2xl mx-auto">
-          {t.subtitle}
+          {t.hero.subtitle}
         </p>
 
         {/* CTAs */}
         <div className="flex justify-center mt-6 gap-4">
           <a className={button} href="#contact">
-            {t.ctaPrimary}
+            {t.hero.ctaPrimary}
           </a>
           <a className={button} href="#services">
-            {t.ctaSecondary}
+            {t.hero.ctaSecondary}
           </a>
         </div>
       </div>
