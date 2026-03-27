@@ -1,10 +1,6 @@
-type ServiceCardContent = {
-  title: string;
-  description: string;
-  features: string[];
-};
+import type { Translations } from "./types";
 
-export const bg = {
+export const bg: Translations = {
   hero: {
     badge: "Blagoevgrad Wellness Studio",
     title: "XBody Euphoria",
@@ -42,7 +38,7 @@ export const bg = {
         "Повишена гъвкавост и баланс",
       ],
     },
-  } satisfies Record<"xbody" | "pilates", ServiceCardContent>,
+  },
   about: {
     badge: "За нас",
     alt: "Нашето студио Euphoria в Благоевград",
