@@ -1,6 +1,4 @@
-import { useLanguage } from "../../context/LanguageContext";
-import { bg } from "../../i18n/bg";
-import { en } from "../../i18n/en";
+import { useTranslation } from "../../hooks/useTranslation";
 
 type GalleryItem = {
   id: number;
@@ -11,50 +9,49 @@ type GalleryItem = {
 };
 
 export function Gallery() {
-  const { language } = useLanguage();
-  const t = language === "bg" ? bg.gallery : en.gallery;
+  const { t } = useTranslation();
 
   const item: GalleryItem[] = [
     {
       id: 1,
       type: "video",
       src: "/images/gallery/gallery-1.mp4",
-      alt: t.alts.reformer,
+      alt: t.gallery.alts.reformer,
       className: "col-span-2 row-span-10 lg:col-span-2 lg:row-span-16",
     },
     {
       id: 2,
       type: "image",
       src: "/images/gallery/gallery-2.webp",
-      alt: t.alts.emsCoaches,
+      alt: t.gallery.alts.emsCoaches,
       className: "col-span-1 row-span-8 lg:col-span-1 lg:row-span-12",
     },
     {
       id: 3,
       type: "video",
       src: "/images/gallery/gallery-3.mp4",
-      alt: t.alts.emsMother,
+      alt: t.gallery.alts.emsMother,
       className: "col-span-1 row-span-8 lg:col-span-1 lg:row-span-12",
     },
     {
       id: 4,
       type: "image",
       src: "/images/gallery/gallery-4.webp",
-      alt: t.alts.reformerDuo,
+      alt: t.gallery.alts.reformerDuo,
       className: "col-span-2 row-span-7 lg:col-span-1 lg:row-span-16",
     },
     {
       id: 5,
       type: "image",
       src: "/images/gallery/gallery-5.webp",
-      alt: t.alts.kettlebell,
+      alt: t.gallery.alts.kettlebell,
       className: "col-span-1 row-span-6 lg:col-span-1 lg:row-span-12",
     },
     {
       id: 6,
       type: "image",
       src: "/images/gallery/gallery-6.webp",
-      alt: t.alts.reformerTraining,
+      alt: t.gallery.alts.reformerTraining,
       className: "col-span-1 row-span-6 lg:col-span-1 lg:row-span-7",
     },
   ];
@@ -67,16 +64,16 @@ export function Gallery() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-accent-mauve uppercase tracking-widest text-sm mb-4 ">
-            {t.badge}
+            {t.gallery.badge}
           </p>
           <h2
             id="gallery-title"
             className="text-3xl md:text-5xl text-gray-900 mb-4 "
           >
-            {t.heading}
+            {t.gallery.heading}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {t.description}
+            {t.gallery.description}
           </p>
         </div>
 
