@@ -1,7 +1,5 @@
 import { Award, Users } from "lucide-react";
-import { useLanguage } from "../../context/LanguageContext";
-import { bg } from "../../i18n/bg";
-import { en } from "../../i18n/en";
+import { useTranslation } from "../../hooks/useTranslation";
 
 const ICONS = {
   award: Award,
@@ -9,8 +7,7 @@ const ICONS = {
 } as const;
 
 export function About() {
-  const { language } = useLanguage();
-  const t = language === "bg" ? bg.about : en.about;
+  const { t } = useTranslation();
 
   return (
     <section
@@ -22,23 +19,23 @@ export function About() {
         {/* Text */}
         <div className="md:order-2">
           <p className="text-accent-mauve uppercase tracking-widest leading-relaxed mb-4">
-            {t.badge}
+            {t.about.badge}
           </p>
 
           <h2
             id="about-title"
             className="text-3xl md:text-5xl text-gray-900 mb-6"
           >
-            {t.heading}
+            {t.about.heading}
           </h2>
 
           <p className="text-lg text-gray-600 mb-10 leading-relaxed">
-            {t.description}
+            {t.about.description}
           </p>
 
           {/* Features */}
           <div className="grid gap-3 sm:grid-cols-2">
-            {t.features.map((feature) => {
+            {t.about.features.map((feature) => {
               const Icon = ICONS[feature.icon as keyof typeof ICONS];
 
               return (
@@ -59,7 +56,7 @@ export function About() {
         <div className="md:order-1 aspect-[4/3] rounded-2xl overflow-hidden ring-1 ring-black/5">
           <img
             src="/images/about/about.jpeg"
-            alt={t.alt}
+            alt={t.about.alt}
             className="w-full h-full object-cover"
             loading="lazy"
           />
