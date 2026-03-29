@@ -8,7 +8,7 @@ export function Contact() {
   const divStyle: string =
     "w-12 h-12 rounded-full bg-surface flex items-center justify-center flex-shrink-0 hover:bg-accent-blush transition-color text-accent-mauve hover:text-white";
 
-  const listStyle: string = "flex gap-4 ";
+  const listStyle: string = "flex gap-4 items-center";
   const inputsStyle: string =
     "w-full  rounded-lg border border-gray-300 bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-accent-blush focus:border-transparent transition-colors text-gray-900";
   const fieldStyle: string = "space-y-1";
@@ -95,18 +95,30 @@ export function Contact() {
             </li>
 
             <li className={listStyle}>
-              <a href="tel:+359897869293" aria-label={t.contact.phone.aria}>
-                <div className={divStyle}>
-                  <Phone size={20} />
-                </div>
-              </a>
+              <div className={divStyle}>
+                <Phone size={20} />
+              </div>
+
               <div>
                 <h3 className="text-gray-900 mb-1">{t.contact.phone.title}</h3>
 
-                <p className="text-gray-600">{t.contact.phone.number}</p>
+                {t.contact.phone.items.map((item) => (
+                  <p key={item.label} className="text-gray-600">
+                    <span className="text-sm text-gray-500">
+                      {item.label}:{" "}
+                    </span>
+
+                    <a
+                      href={item.href}
+                      aria-label={item.aria}
+                      className="hover:underline"
+                    >
+                      {item.number}
+                    </a>
+                  </p>
+                ))}
               </div>
             </li>
-
             <li className={listStyle}>
               <a
                 href="mailto:xbodyeuphoria.wellness.studio@gmail.com"
@@ -123,19 +135,30 @@ export function Contact() {
             </li>
 
             <li className={listStyle}>
-              <a
-                href="https://instagram.com/xbody_euphoria"
-                aria-label="Instagram профил на Euphoria"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className={divStyle}>
-                  <Instagram size={20} />
-                </div>
-              </a>
+              <div className={divStyle}>
+                <Instagram size={20} />
+              </div>
+
               <div>
                 <h3 className="text-gray-900 mb-1">{t.contact.social.title}</h3>
-                <p className="text-gray-600">{t.contact.social.instagram}</p>
+
+                {t.contact.social.items.map((item) => (
+                  <p key={item.label} className="text-gray-600">
+                    <span className="text-sm text-gray-500">
+                      {item.label}:{" "}
+                    </span>
+
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline"
+                      aria-label={item.label}
+                    >
+                      {item.handle}
+                    </a>
+                  </p>
+                ))}
               </div>
             </li>
           </ul>

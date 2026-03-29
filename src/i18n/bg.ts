@@ -83,8 +83,20 @@ export const bg: Translations = {
     },
     phone: {
       title: "Телефон",
-      number: "+359 897 869 293",
-      aria: "Обади се на Euphoria Wellness Studio",
+      items: [
+        {
+          label: "Pilates",
+          number: "+359 890 997 586",
+          href: "tel:+359890997586",
+          aria: "Обади се за Pilates",
+        },
+        {
+          label: "XBody",
+          number: "+359 897 869 293",
+          href: "tel:+359897869293",
+          aria: "Обади се за XBody",
+        },
+      ],
     },
     email: {
       title: "Имейл",
@@ -93,7 +105,18 @@ export const bg: Translations = {
     },
     social: {
       title: "Последвайте ни",
-      instagram: "@xbody_euphoria",
+      items: [
+        {
+          label: "Pilates",
+          handle: "@euphoriareform_wellness",
+          href: "https://instagram.com/euphoriareform_wellness",
+        },
+        {
+          label: "XBody",
+          handle: "@xbody_euphoria",
+          href: "https://instagram.com/xbody_euphoria",
+        },
+      ],
     },
     mapTitle: "Намерете ни на картата",
     contactForm: {

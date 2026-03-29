@@ -53,10 +53,13 @@ export type Translations = {
 
     phone: {
       title: string;
-      number: string;
-      aria: string;
+      items: {
+        label: string;
+        number: string;
+        href: string;
+        aria: string;
+      }[];
     };
-
     email: {
       title: string;
       address: string;
@@ -65,9 +68,12 @@ export type Translations = {
 
     social: {
       title: string;
-      instagram: string;
+      items: {
+        label: string;
+        handle: string;
+        href: string;
+      }[];
     };
-
     mapTitle: string;
 
     contactForm: {

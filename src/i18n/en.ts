@@ -89,8 +89,20 @@ export const en: Translations = {
 
     phone: {
       title: "Phone",
-      number: "+359 897 869 293",
-      aria: "Call Euphoria Wellness Studio",
+      items: [
+        {
+          label: "Pilates",
+          number: "+359 890 997 586",
+          href: "tel:+359890997586",
+          aria: "Call for Pilates",
+        },
+        {
+          label: "XBody",
+          number: "+359 897 869 293",
+          href: "tel:+359897869293",
+          aria: "Call for XBody",
+        },
+      ],
     },
 
     email: {
@@ -101,7 +113,18 @@ export const en: Translations = {
 
     social: {
       title: "Follow Us",
-      instagram: "@xbody_euphoria",
+      items: [
+        {
+          label: "Instagram profile for Pilates",
+          handle: "@euphoriareform_wellness",
+          href: "https://instagram.com/euphoriareform_wellness",
+        },
+        {
+          label: "Instagram profile for XBody",
+          handle: "@xbody_euphoria",
+          href: "https://instagram.com/xbody_euphoria",
+        },
+      ],
     },
     mapTitle: "Find us on the map",
 
