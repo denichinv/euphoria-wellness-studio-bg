@@ -10,6 +10,7 @@ A modern, production-ready marketing website for **Euphoria**, a boutique wellne
 ## 🌐 Live Demo
 
 https://euphoria-wellness.netlify.app/
+https://euphoria-wellness.com/
 
 ---
 
