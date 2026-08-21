@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { renderWithProviders } from "../../test/renderWithPorviders";
+import { renderWithProviders } from "../../test/renderWithProviders";
 import { About } from "./About";
 
 describe("About", () => {

@@ -1,5 +1,5 @@
-import { fireEvent, render, waitFor } from "@testing-library/react";
-import { renderWithProviders } from "../../test/renderWithPorviders";
+import { fireEvent, waitFor } from "@testing-library/react";
+import { renderWithProviders } from "../../test/renderWithProviders";
 
 import { vi } from "vitest";
 import { Contact } from "./Contact";
@@ -16,7 +16,7 @@ describe("Contact", () => {
   test("shows success state after filling required fields and submitting", async () => {
     vi.stubGlobal("fetch", () => Promise.resolve({ ok: true }));
 
-    render(<Contact />);
+    renderWithProviders(<Contact />);
 
     fireEvent.change(document.querySelector("#name")!, {
       target: { value: "Vilizar D" },
