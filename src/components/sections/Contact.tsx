@@ -25,12 +25,17 @@ export function Contact() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const params = new URLSearchParams();
+
+    formData.forEach((value, key) => {
+      params.append(key, String(value));
+    });
 
     try {
       const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
+        body: params.toString(),
       });
 
       if (!res.ok) throw new Error("Submit failed");

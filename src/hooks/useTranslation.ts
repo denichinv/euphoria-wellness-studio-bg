@@ -1,4 +1,4 @@
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../hooks/useLanguage";
 import { bg } from "../i18n/bg";
 import { en } from "../i18n/en";
 import type { Translations } from "../i18n/types";

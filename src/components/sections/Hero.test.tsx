@@ -1,9 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { renderWithProviders } from "../../test/renderWithProviders";
+
 import { Hero } from "./Hero";
 
 describe("Hero section", () => {
   beforeEach(() => {
-    render(<Hero />);
+    renderWithProviders(<Hero />);
   });
 
   it("renders main heading", () => {
@@ -11,7 +13,9 @@ describe("Hero section", () => {
   });
 
   it("renders description paragraph", () => {
-    expect(screen.getByText(/pilates reformer/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/pilates reformer/i, { selector: "p" }),
+    ).toBeInTheDocument();
   });
 
   it("renders links with correct hrefs", () => {

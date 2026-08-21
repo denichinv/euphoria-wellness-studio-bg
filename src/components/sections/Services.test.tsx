@@ -1,10 +1,18 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { renderWithProviders } from "../../test/renderWithProviders";
+
 import { vi } from "vitest";
 
 vi.mock("../../data/services", () => ({
   services: [
-    { id: "s1", title: "Service A", description: "", image: "", features: [] },
-    { id: "s2", title: "Service B", description: "", image: "", features: [] },
+    {
+      id: "pilates",
+      image: "/pilates.webp",
+    },
+    {
+      id: "xbody",
+      image: "/xbody.webp",
+    },
   ],
 }));
 
@@ -18,7 +26,7 @@ import { Services } from "./Services";
 
 describe("Services", () => {
   beforeEach(() => {
-    render(<Services />);
+    renderWithProviders(<Services />);
   });
 
   it("renders the section heading (h2)", () => {
