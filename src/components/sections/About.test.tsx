@@ -1,9 +1,10 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { renderWithProviders } from "../../test/renderWithPorviders";
 import { About } from "./About";
 
 describe("About", () => {
   beforeEach(() => {
-    render(<About />);
+    renderWithProviders(<About />);
   });
 
   test("should have semantic header (h2) ", () => {

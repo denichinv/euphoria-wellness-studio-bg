@@ -1,9 +1,11 @@
 import { render, screen } from "@testing-library/react";
+import { renderWithProviders } from "../../test/renderWithPorviders";
+
 import { Gallery } from "./Gallery";
 
 describe("Gallery section", () => {
   beforeEach(() => {
-    render(<Gallery />);
+    renderWithProviders(<Gallery />);
   });
 
   test("renders the gallery section with correct aria attributes", () => {

@@ -1,9 +1,11 @@
 import { render, screen } from "@testing-library/react";
+import { renderWithProviders } from "../../test/renderWithPorviders";
+
 import { Hero } from "./Hero";
 
 describe("Hero section", () => {
   beforeEach(() => {
-    render(<Hero />);
+    renderWithProviders(<Hero />);
   });
 
   it("renders main heading", () => {

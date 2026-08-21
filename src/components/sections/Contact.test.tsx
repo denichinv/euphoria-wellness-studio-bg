@@ -1,10 +1,12 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
+import { renderWithProviders } from "../../test/renderWithPorviders";
+
 import { vi } from "vitest";
 import { Contact } from "./Contact";
 
 describe("Contact", () => {
   test("renders form by default", () => {
-    render(<Contact />);
+    renderWithProviders(<Contact />);
 
     expect(document.querySelector("form")).toBeTruthy();
     expect(document.querySelector('button[type="submit"]')).toBeTruthy();
