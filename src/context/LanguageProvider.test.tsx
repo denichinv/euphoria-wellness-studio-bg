@@ -17,7 +17,12 @@ function LanguageControls() {
 }
 
 describe("LanguageProvider", () => {
-  test("synchronizes the document language", () => {
+  beforeEach(() => {
+    localStorage.clear();
+    document.documentElement.lang = "bg";
+  });
+
+  test("synchronizes and saves the selected language", () => {
     render(
       <LanguageProvider>
         <LanguageControls />
@@ -33,5 +38,32 @@ describe("LanguageProvider", () => {
     );
 
     expect(document.documentElement).toHaveAttribute("lang", "en");
+    expect(localStorage.getItem("language")).toBe("en");
+  });
+
+  test("restores the saved language", () => {
+    localStorage.setItem("language", "en");
+
+    render(
+      <LanguageProvider>
+        <LanguageControls />
+      </LanguageProvider>,
+    );
+
+    expect(screen.getByText("en")).toBeInTheDocument();
+    expect(document.documentElement).toHaveAttribute("lang", "en");
+  });
+
+  test("falls back to Bulgarian for an invalid stored language", () => {
+    localStorage.setItem("language", "invalid");
+
+    render(
+      <LanguageProvider>
+        <LanguageControls />
+      </LanguageProvider>,
+    );
+
+    expect(screen.getByText("bg")).toBeInTheDocument();
+    expect(document.documentElement).toHaveAttribute("lang", "bg");
   });
 });
