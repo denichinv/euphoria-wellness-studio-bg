@@ -132,6 +132,8 @@ export const bg: Translations = {
       message: "Съобщение (по желание)",
       messagePlaceholder: "Разкажете ни повече за вашите цели...",
       submitButton: "Изпрати запитване",
+      submittingButton: "Изпращане...",
+      errorMessage: "Съобщението не беше изпратено. Моля, опитайте отново.",
     },
     contactFormSuccess: {
       title: " Благодарим ви! Ще се свържем с вас възможно най-скоро.",

@@ -1,4 +1,4 @@
-import { LanguageToggle } from "../../components/ui/LangueageToggle";
+import { LanguageToggle } from "../ui/LanguageToggle";
 import { useEffect, useState } from "react";
 import { useTranslation } from "../../hooks/useTranslation";
 
