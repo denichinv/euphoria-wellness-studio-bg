@@ -33,7 +33,32 @@ describe("Contact", () => {
     });
 
     expect(document.querySelector('button[type="button"]')).toBeTruthy();
+  });
 
+  test("keeps the form visible when submission fails", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+
+    renderWithProviders(<Contact />);
+
+    fireEvent.change(document.querySelector("#name")!, {
+      target: { value: "Vilizar D" },
+    });
+
+    fireEvent.change(document.querySelector("#email")!, {
+      target: { value: "vd@example.com" },
+    });
+
+    fireEvent.submit(document.querySelector("form")!);
+
+    await waitFor(() => {
+      expect(document.querySelector('[role="alert"]')).toBeTruthy();
+    });
+
+    expect(document.querySelector("form")).toBeTruthy();
+    expect(document.querySelector("#name")).toHaveValue("Vilizar D");
+    expect(document.querySelector("#email")).toHaveValue("vd@example.com");
+  });
+  afterEach(() => {
     vi.unstubAllGlobals();
   });
 });

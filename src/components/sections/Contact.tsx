@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Phone, Mail, Instagram, Clock } from "lucide-react";
 import { useTranslation } from "../../hooks/useTranslation";
 
+type FormStatus = "idle" | "submitting" | "success" | "error";
+
 export function Contact() {
   const { t } = useTranslation();
 
@@ -18,11 +20,11 @@ export function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [service, setService] = useState("pilates");
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState<FormStatus>("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setStatus("submitting");
     const form = e.currentTarget;
     const formData = new FormData(form);
     const params = new URLSearchParams();
@@ -40,14 +42,14 @@ export function Contact() {
 
       if (!res.ok) throw new Error("Submit failed");
 
-      setIsSubmitted(true);
+      setStatus("success");
       setName("");
       setEmail("");
       setPhone("");
       setMessage("");
       setService("pilates");
-    } catch (err) {
-      alert(String(err));
+    } catch {
+      setStatus("error");
     }
   };
 
@@ -181,7 +183,7 @@ export function Contact() {
         {/* Right column */}
 
         <div className="rounded-3xl bg-surface p-8 md:p-12">
-          {isSubmitted ? (
+          {status === "success" ? (
             <div className="space-y-6 ">
               <h3 className="text-2xl md:text-3xl text-gray-900 mb-6">
                 {t.contact.contactFormSuccess.title}
@@ -189,7 +191,7 @@ export function Contact() {
               <button
                 type="button"
                 className="w-full py-4 bg-gray-900 text-white rounded-xl hover:bg-accent-mauve transition-colors duration-300"
-                onClick={() => setIsSubmitted(false)}
+                onClick={() => setStatus("idle")}
               >
                 {t.contact.contactFormSuccess.submitButton}
               </button>
@@ -298,11 +300,20 @@ export function Contact() {
                   placeholder={t.contact.contactForm.messagePlaceholder}
                 />
               </div>
+              {status === "error" && (
+                <p role="alert" className="text-sm text-red-700">
+                  Submission failed. Please try again.
+                </p>
+              )}
               <button
                 type="submit"
-                className="w-full py-4 bg-gray-900 text-white rounded-xl hover:bg-accent-mauve transition-colors duration-300 "
+                disabled={status === "submitting"}
+                aria-busy={status === "submitting"}
+                className="w-full rounded-xl bg-gray-900 py-4 text-white transition-colors duration-300 hover:bg-accent-mauve disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {t.contact.contactForm.submitButton}
+                {status === "submitting"
+                  ? "Submitting..."
+                  : t.contact.contactForm.submitButton}
               </button>
             </form>
           )}
