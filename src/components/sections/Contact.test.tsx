@@ -1,4 +1,4 @@
-import { fireEvent, waitFor } from "@testing-library/react";
+import { fireEvent, screen, waitFor } from "@testing-library/react";
 import { renderWithProviders } from "../../test/renderWithProviders";
 
 import { vi } from "vitest";
@@ -31,6 +31,7 @@ describe("Contact", () => {
     await waitFor(() => {
       expect(document.querySelector("form")).toBeNull();
     });
+    expect(screen.getByRole("status")).toBeInTheDocument();
 
     expect(document.querySelector('button[type="button"]')).toBeTruthy();
   });
@@ -53,6 +54,11 @@ describe("Contact", () => {
     await waitFor(() => {
       expect(document.querySelector('[role="alert"]')).toBeTruthy();
     });
+    await waitFor(() => {
+      expect(screen.getByRole("alert")).toHaveTextContent(
+        "Съобщението не беше изпратено",
+      );
+    });
 
     expect(document.querySelector("form")).toBeTruthy();
     expect(document.querySelector("#name")).toHaveValue("Vilizar D");
@@ -60,5 +66,36 @@ describe("Contact", () => {
   });
   afterEach(() => {
     vi.unstubAllGlobals();
+  });
+  test("disables the submit button while submitting", () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(() => new Promise<{ ok: boolean }>(() => {})),
+    );
+
+    renderWithProviders(<Contact />);
+
+    fireEvent.change(
+      screen.getByRole("textbox", { name: /^име и фамилия$/i }),
+      {
+        target: { value: "Vilizar D" },
+      },
+    );
+
+    fireEvent.change(
+      screen.getByRole("textbox", { name: /^имейл адрес$/i }),
+      {
+        target: { value: "vd@example.com" },
+      },
+    );
+
+    fireEvent.submit(document.querySelector("form")!);
+
+    const submitButton = screen.getByRole("button", {
+      name: "Изпращане...",
+    });
+
+    expect(submitButton).toBeDisabled();
+    expect(submitButton).toHaveAttribute("aria-busy", "true");
   });
 });

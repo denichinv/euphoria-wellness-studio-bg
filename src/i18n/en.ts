@@ -141,6 +141,8 @@ export const en: Translations = {
       message: "Message (optional)",
       messagePlaceholder: "Tell us more about your goals...",
       submitButton: "Send request",
+      submittingButton: "Submitting...",
+      errorMessage: "Your message could not be sent. Please try again.",
     },
 
     contactFormSuccess: {

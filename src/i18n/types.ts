@@ -89,6 +89,8 @@ export type Translations = {
       message: string;
       messagePlaceholder: string;
       submitButton: string;
+      submittingButton: string;
+      errorMessage: string;
     };
 
     contactFormSuccess: {

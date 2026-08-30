@@ -184,7 +184,7 @@ export function Contact() {
 
         <div className="rounded-3xl bg-surface p-8 md:p-12">
           {status === "success" ? (
-            <div className="space-y-6 ">
+            <div role="status" aria-live="polite" className="space-y-6">
               <h3 className="text-2xl md:text-3xl text-gray-900 mb-6">
                 {t.contact.contactFormSuccess.title}
               </h3>
@@ -302,7 +302,7 @@ export function Contact() {
               </div>
               {status === "error" && (
                 <p role="alert" className="text-sm text-red-700">
-                  Submission failed. Please try again.
+                  {t.contact.contactForm.errorMessage}
                 </p>
               )}
               <button
@@ -312,7 +312,7 @@ export function Contact() {
                 className="w-full rounded-xl bg-gray-900 py-4 text-white transition-colors duration-300 hover:bg-accent-mauve disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {status === "submitting"
-                  ? "Submitting..."
+                  ? t.contact.contactForm.submittingButton
                   : t.contact.contactForm.submitButton}
               </button>
             </form>
