@@ -37,4 +37,15 @@ describe("Services", () => {
     const cards = screen.getAllByTestId("service-card");
     expect(cards).toHaveLength(2);
   });
+  it("connects the section to its heading", () => {
+    const section = screen.getByRole("region");
+
+    expect(section).toHaveAttribute("id", "services");
+    expect(section).toHaveAttribute("aria-labelledby", "services-title");
+
+    expect(screen.getByRole("heading", { level: 2 })).toHaveAttribute(
+      "id",
+      "services-title",
+    );
+  });
 });

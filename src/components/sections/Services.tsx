@@ -6,7 +6,11 @@ export function Services() {
   const { t } = useTranslation();
 
   return (
-    <section className="py-24 bg-surface" id="services">
+    <section
+      id="services"
+      aria-labelledby="services-title"
+      className="py-24 bg-surface"
+    >
       <div className="max-w-6xl mx-auto px-4 text-center">
         {/* Badge */}
         <p className="inline-flex items-center px-4 py-2 text-sm uppercase tracking-widest leading-relaxed text-accent-mauve">
@@ -14,7 +18,10 @@ export function Services() {
         </p>
 
         {/* Heading */}
-        <h2 className="text-4xl md:text-6xl text-neutral-900 mb-6 mt-6">
+        <h2
+          id="services-title"
+          className="mt-6 mb-6 text-4xl text-neutral-900 md:text-6xl"
+        >
           {t.services.heading}
         </h2>
 
