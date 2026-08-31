@@ -41,7 +41,10 @@ describe("Hero section", () => {
 
       expect(source).toHaveAttribute("media", "(min-width: 768px)");
       expect(source).toHaveAttribute("srcset");
+      expect(source).toHaveAttribute("sizes", "100vw");
       expect(image).toHaveAttribute("src");
+      expect(image).toHaveAttribute("srcset");
+      expect(image).toHaveAttribute("sizes", "100vw");
       expect(image).toHaveAttribute("alt", "");
     });
   });

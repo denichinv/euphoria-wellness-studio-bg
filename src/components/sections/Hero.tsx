@@ -4,12 +4,26 @@ import { useTranslation } from "../../hooks/useTranslation";
 
 const HERO_SLIDES = [
   {
-    desktop: "/images/hero/hero-desktop.webp",
-    mobile: "/images/hero/hero-mobile-2.webp",
+    desktop: {
+      srcSet:
+        "/images/hero/hero-slide-1-desktop-1280.webp 1280w, /images/hero/hero-slide-1-desktop-1920.webp 1920w",
+    },
+    mobile: {
+      src: "/images/hero/hero-slide-1-mobile-640.webp",
+      srcSet:
+        "/images/hero/hero-slide-1-mobile-640.webp 640w, /images/hero/hero-slide-1-mobile-960.webp 960w",
+    },
   },
   {
-    desktop: "/images/hero/hero-desktop-2.webp",
-    mobile: "/images/hero/hero-mobile.webp",
+    desktop: {
+      srcSet:
+        "/images/hero/hero-slide-2-desktop-1280.webp 1280w, /images/hero/hero-slide-2-desktop-1920.webp 1920w",
+    },
+    mobile: {
+      src: "/images/hero/hero-slide-2-mobile-640.webp",
+      srcSet:
+        "/images/hero/hero-slide-2-mobile-640.webp 640w, /images/hero/hero-slide-2-mobile-960.webp 960w",
+    },
   },
 ] as const;
 
@@ -38,14 +52,20 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         {HERO_SLIDES.map((slide, index) => (
           <picture
-            key={slide.desktop}
+            key={slide.mobile.src}
             className={`absolute inset-0 block transition-opacity duration-1000 ${
               current === index ? "opacity-100" : "opacity-0"
             }`}
           >
-            <source media="(min-width: 768px)" srcSet={slide.desktop} />
+            <source
+              media="(min-width: 768px)"
+              srcSet={slide.desktop.srcSet}
+              sizes="100vw"
+            />
             <img
-              src={slide.mobile}
+              src={slide.mobile.src}
+              srcSet={slide.mobile.srcSet}
+              sizes="100vw"
               alt=""
               aria-hidden="true"
               className="h-full w-full object-cover object-center"
