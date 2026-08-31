@@ -2,25 +2,25 @@ import { LanguageToggle } from "../ui/LanguageToggle";
 import { useEffect, useState } from "react";
 import { useTranslation } from "../../hooks/useTranslation";
 
+const HERO_SLIDES = [
+  {
+    desktop: "/images/hero/hero-desktop.webp",
+    mobile: "/images/hero/hero-mobile-2.webp",
+  },
+  {
+    desktop: "/images/hero/hero-desktop-2.webp",
+    mobile: "/images/hero/hero-mobile.webp",
+  },
+] as const;
+
 export function Hero() {
   const { t } = useTranslation();
 
   const button =
     "group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-full hover:bg-accent-blush transition-all duration-300 shadow-lg hover:shadow-xl";
 
-  const desktopImages = [
-    "/images/hero/hero-desktop.webp",
-    "/images/hero/hero-desktop-2.webp",
-  ] as const;
-
-  const mobileImages = [
-    "/images/hero/hero-mobile-2.webp",
-    "/images/hero/hero-mobile.webp",
-  ] as const;
-
   const [active, setActive] = useState(0);
-  const images = window.innerWidth >= 768 ? desktopImages : mobileImages;
-  const current = active % images.length;
+  const current = active % HERO_SLIDES.length;
 
   useEffect(() => {
     const id = window.setInterval(() => {
@@ -36,20 +36,24 @@ export function Hero() {
       id="hero"
     >
       <div className="absolute inset-0 z-0">
-        <div
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-            current === 0 ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ backgroundImage: `url(${images[0]})` }}
-          aria-hidden="true"
-        />
-        <div
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-            current === 1 ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ backgroundImage: `url(${images[1]})` }}
-          aria-hidden="true"
-        />
+        {HERO_SLIDES.map((slide, index) => (
+          <picture
+            key={slide.desktop}
+            className={`absolute inset-0 block transition-opacity duration-1000 ${
+              current === index ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <source media="(min-width: 768px)" srcSet={slide.desktop} />
+            <img
+              src={slide.mobile}
+              alt=""
+              aria-hidden="true"
+              className="h-full w-full object-cover object-center"
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
+            />
+          </picture>
+        ))}
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
