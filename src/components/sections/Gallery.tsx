@@ -6,6 +6,7 @@ type GalleryItem = {
   src: string;
   srcSet?: string;
   sizes?: string;
+  poster?: string;
   alt: string;
   className: string;
 };
@@ -17,6 +18,7 @@ export function Gallery() {
       id: 1,
       type: "video",
       src: "/images/gallery/gallery-1.mp4",
+      poster: "/images/gallery/gallery-1-poster.webp",
       alt: t.gallery.alts.reformer,
       className: "col-span-2 row-span-10 lg:col-span-2 lg:row-span-16",
     },
@@ -34,6 +36,7 @@ export function Gallery() {
       id: 3,
       type: "video",
       src: "/images/gallery/gallery-3.mp4",
+      poster: "/images/gallery/gallery-3-poster.webp",
       alt: t.gallery.alts.emsMother,
       className: "col-span-1 row-span-8 lg:col-span-1 lg:row-span-12",
     },
@@ -109,6 +112,7 @@ export function Gallery() {
               ) : (
                 <video
                   className="h-full w-full object-cover transition duration-500 group-hover:brightness-90"
+                  poster={galleryItem.poster}
                   autoPlay
                   muted
                   playsInline

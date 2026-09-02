@@ -39,4 +39,19 @@ describe("Gallery section", () => {
       expect(image).toHaveAttribute("decoding", "async");
     });
   });
+  test("provides poster images for gallery videos", () => {
+    const videos = document.querySelectorAll("video");
+
+    expect(videos).toHaveLength(2);
+
+    expect(videos[0]).toHaveAttribute(
+      "poster",
+      "/images/gallery/gallery-1-poster.webp",
+    );
+
+    expect(videos[1]).toHaveAttribute(
+      "poster",
+      "/images/gallery/gallery-3-poster.webp",
+    );
+  });
 });
