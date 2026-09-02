@@ -1,4 +1,5 @@
 import { useTranslation } from "../../hooks/useTranslation";
+import { ViewportVideo } from "../ui/ViewportVideo";
 
 type GalleryItem = {
   id: number;
@@ -110,18 +111,11 @@ export function Gallery() {
                   decoding="async"
                 />
               ) : (
-                <video
-                  className="h-full w-full object-cover transition duration-500 group-hover:brightness-90"
+                <ViewportVideo
+                  src={galleryItem.src}
                   poster={galleryItem.poster}
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  preload="metadata"
-                  aria-hidden="true"
-                >
-                  <source src={galleryItem.src} type="video/mp4" />
-                </video>
+                  className="h-full w-full object-cover transition duration-500 group-hover:brightness-90"
+                />
               )}
             </li>
           ))}

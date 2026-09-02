@@ -53,5 +53,10 @@ describe("Gallery section", () => {
       "poster",
       "/images/gallery/gallery-3-poster.webp",
     );
+
+    videos.forEach((video) => {
+      expect(video).not.toHaveAttribute("autoplay");
+      expect(video).toHaveAttribute("preload", "none");
+    });
   });
 });
