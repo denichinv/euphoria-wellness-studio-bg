@@ -29,4 +29,23 @@ describe("Hero section", () => {
       "#services",
     );
   });
+
+  it("provides responsive sources for each hero slide", () => {
+    const pictures = document.querySelectorAll("picture");
+
+    expect(pictures).toHaveLength(2);
+
+    pictures.forEach((picture) => {
+      const source = picture.querySelector("source");
+      const image = picture.querySelector("img");
+
+      expect(source).toHaveAttribute("media", "(min-width: 768px)");
+      expect(source).toHaveAttribute("srcset");
+      expect(source).toHaveAttribute("sizes", "100vw");
+      expect(image).toHaveAttribute("src");
+      expect(image).toHaveAttribute("srcset");
+      expect(image).toHaveAttribute("sizes", "100vw");
+      expect(image).toHaveAttribute("alt", "");
+    });
+  });
 });

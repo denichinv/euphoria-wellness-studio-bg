@@ -26,4 +26,37 @@ describe("Gallery section", () => {
     const items = screen.getAllByRole("listitem");
     expect(items.length).toBeGreaterThan(0);
   });
+  test("provides responsive sources for gallery images", () => {
+    const images = screen.getAllByRole("img");
+
+    expect(images).toHaveLength(4);
+
+    images.forEach((image) => {
+      expect(image).toHaveAttribute("src");
+      expect(image).toHaveAttribute("srcset");
+      expect(image).toHaveAttribute("sizes");
+      expect(image).toHaveAttribute("loading", "lazy");
+      expect(image).toHaveAttribute("decoding", "async");
+    });
+  });
+  test("provides poster images for gallery videos", () => {
+    const videos = document.querySelectorAll("video");
+
+    expect(videos).toHaveLength(2);
+
+    expect(videos[0]).toHaveAttribute(
+      "poster",
+      "/images/gallery/gallery-1-poster.webp",
+    );
+
+    expect(videos[1]).toHaveAttribute(
+      "poster",
+      "/images/gallery/gallery-3-poster.webp",
+    );
+
+    videos.forEach((video) => {
+      expect(video).not.toHaveAttribute("autoplay");
+      expect(video).toHaveAttribute("preload", "none");
+    });
+  });
 });

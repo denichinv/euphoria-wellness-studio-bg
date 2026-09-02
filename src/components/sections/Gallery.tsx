@@ -1,13 +1,16 @@
 import { useTranslation } from "../../hooks/useTranslation";
+import { ViewportVideo } from "../ui/ViewportVideo";
 
 type GalleryItem = {
   id: number;
   type: "image" | "video";
   src: string;
+  srcSet?: string;
+  sizes?: string;
+  poster?: string;
   alt: string;
   className: string;
 };
-
 export function Gallery() {
   const { t } = useTranslation();
 
@@ -16,13 +19,17 @@ export function Gallery() {
       id: 1,
       type: "video",
       src: "/images/gallery/gallery-1.mp4",
+      poster: "/images/gallery/gallery-1-poster.webp",
       alt: t.gallery.alts.reformer,
       className: "col-span-2 row-span-10 lg:col-span-2 lg:row-span-16",
     },
     {
       id: 2,
       type: "image",
-      src: "/images/gallery/gallery-2.webp",
+      src: "/images/gallery/gallery-2-600.webp",
+      srcSet:
+        "/images/gallery/gallery-2-600.webp 600w, /images/gallery/gallery-2-900.webp 900w",
+      sizes: "(min-width: 1024px) 33vw, 50vw",
       alt: t.gallery.alts.emsCoaches,
       className: "col-span-1 row-span-8 lg:col-span-1 lg:row-span-12",
     },
@@ -30,27 +37,37 @@ export function Gallery() {
       id: 3,
       type: "video",
       src: "/images/gallery/gallery-3.mp4",
+      poster: "/images/gallery/gallery-3-poster.webp",
       alt: t.gallery.alts.emsMother,
       className: "col-span-1 row-span-8 lg:col-span-1 lg:row-span-12",
     },
     {
       id: 4,
       type: "image",
-      src: "/images/gallery/gallery-4.webp",
+      src: "/images/gallery/gallery-4-600.webp",
+      srcSet:
+        "/images/gallery/gallery-4-600.webp 600w, /images/gallery/gallery-4-1000.webp 1000w",
+      sizes: "(min-width: 1024px) 33vw, 100vw",
       alt: t.gallery.alts.reformerDuo,
       className: "col-span-2 row-span-7 lg:col-span-1 lg:row-span-16",
     },
     {
       id: 5,
       type: "image",
-      src: "/images/gallery/gallery-5.webp",
+      src: "/images/gallery/gallery-5-600.webp",
+      srcSet:
+        "/images/gallery/gallery-5-600.webp 600w, /images/gallery/gallery-5-1000.webp 1000w",
+      sizes: "(min-width: 1024px) 33vw, 50vw",
       alt: t.gallery.alts.kettlebell,
       className: "col-span-1 row-span-6 lg:col-span-1 lg:row-span-12",
     },
     {
       id: 6,
       type: "image",
-      src: "/images/gallery/gallery-6.webp",
+      src: "/images/gallery/gallery-6-600.webp",
+      srcSet:
+        "/images/gallery/gallery-6-600.webp 600w, /images/gallery/gallery-6-1000.webp 1000w",
+      sizes: "(min-width: 1024px) 33vw, 50vw",
       alt: t.gallery.alts.reformerTraining,
       className: "col-span-1 row-span-6 lg:col-span-1 lg:row-span-7",
     },
@@ -86,22 +103,19 @@ export function Gallery() {
               {galleryItem.type === "image" ? (
                 <img
                   src={galleryItem.src}
+                  srcSet={galleryItem.srcSet}
+                  sizes={galleryItem.sizes}
                   alt={galleryItem.alt}
                   className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                   loading="lazy"
+                  decoding="async"
                 />
               ) : (
-                <video
+                <ViewportVideo
+                  src={galleryItem.src}
+                  poster={galleryItem.poster}
                   className="h-full w-full object-cover transition duration-500 group-hover:brightness-90"
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  preload="metadata"
-                  aria-hidden="true"
-                >
-                  <source src={galleryItem.src} type="video/mp4" />
-                </video>
+                />
               )}
             </li>
           ))}
