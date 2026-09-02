@@ -97,4 +97,22 @@ describe("ViewportVideo", () => {
 
     unmount();
   });
+  test("does not play video when reduced motion is preferred", () => {
+    vi.stubGlobal(
+      "matchMedia",
+      vi.fn().mockReturnValue({
+        matches: true,
+        media: "(prefers-reduced-motion: reduce)",
+        onchange: null,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      }),
+    );
+
+    render(<ViewportVideo src="/video.mp4" poster="/poster.webp" />);
+
+    expect(observe).not.toHaveBeenCalled();
+    expect(HTMLMediaElement.prototype.play).not.toHaveBeenCalled();
+  });
 });

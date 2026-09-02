@@ -1,6 +1,7 @@
 import { LanguageToggle } from "../ui/LanguageToggle";
 import { useEffect, useState } from "react";
 import { useTranslation } from "../../hooks/useTranslation";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
 const HERO_SLIDES = [
   {
@@ -35,15 +36,15 @@ export function Hero() {
 
   const [active, setActive] = useState(0);
   const current = active % HERO_SLIDES.length;
-
+  const prefersReducedMotion = usePrefersReducedMotion();
   useEffect(() => {
+    if (prefersReducedMotion) return;
     const id = window.setInterval(() => {
       setActive((prev) => prev + 1);
     }, 7000);
 
     return () => window.clearInterval(id);
-  }, []);
-
+  }, [prefersReducedMotion]);
   return (
     <section
       className="relative overflow-hidden min-h-[100dvh] flex items-center justify-center"
@@ -53,7 +54,7 @@ export function Hero() {
         {HERO_SLIDES.map((slide, index) => (
           <picture
             key={slide.mobile.src}
-            className={`absolute inset-0 block transition-opacity duration-1000 ${
+            className={`absolute inset-0 block motion-safe:transition-opacity motion-safe:duration-1000 ${
               current === index ? "opacity-100" : "opacity-0"
             }`}
           >

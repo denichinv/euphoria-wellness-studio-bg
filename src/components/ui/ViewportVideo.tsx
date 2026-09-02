@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
 type ViewportVideoProps = {
   src: string;
@@ -8,11 +9,15 @@ type ViewportVideoProps = {
 
 export function ViewportVideo({ src, poster, className }: ViewportVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     const video = videoRef.current;
-
-    if (!video || typeof IntersectionObserver === "undefined") {
+    if (
+      !video ||
+      prefersReducedMotion ||
+      typeof IntersectionObserver === "undefined"
+    ) {
       return;
     }
 
@@ -33,7 +38,7 @@ export function ViewportVideo({ src, poster, className }: ViewportVideoProps) {
       observer.disconnect();
       video.pause();
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <video
