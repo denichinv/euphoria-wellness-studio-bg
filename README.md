@@ -1,27 +1,26 @@
 # Euphoria — XBody & Pilates Reformer Studio
 
-A modern, production-ready marketing website for **Euphoria**, a boutique wellness studio in **Blagoevgrad, Bulgaria** offering **XBody EMS** and **Pilates Reformer** sessions.
+A bilingual client website for **Euphoria**, a boutique wellness studio in **Blagoevgrad, Bulgaria**, created to establish their digital presence and present **Pilates Reformer** and **XBody EMS** services in both **Bulgarian and English**.
 
 > This repository is publicly visible for portfolio demonstration purposes only.  
 > The design, branding, and business identity belong to Euphoria Wellness Studio.
 
 ---
 
-## 🌐 Live Demo
+## 🌐 Live Website
 
-https://euphoria-wellness.netlify.app/
 https://euphoria-wellness.com/
 
 ---
 
 ## 🧠 Project Overview
 
-The goal of this project was to build a **clean, premium marketing website** for a boutique fitness studio while focusing on:
+The website was built with focus on:
 
 - performance
 - accessibility
 - modular React architecture
-- production-ready deployment
+- seamless bilingual experience
 
 The website provides information about services, studio atmosphere, and contact options for potential clients.
 
@@ -151,7 +150,7 @@ This repository is part of a **front-end developer portfolio** and demonstrates:
 **Vilizar Denichin**
 
 🌍 Portfolio  
-https://vilizardenichin.netlify.app
+https://vilizar.dev
 
 💼 LinkedIn  
 https://linkedin.com/in/VilizarDenichin
