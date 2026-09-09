@@ -24,7 +24,7 @@ export const en: Translations = {
       features: [
         "20-minute sessions",
         "Deep muscle activation",
-        "Fast visible results",
+        "Individually adjusted resistance",
       ],
     },
 
