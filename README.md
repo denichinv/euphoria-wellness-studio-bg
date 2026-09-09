@@ -28,15 +28,16 @@ The website provides information about services, studio atmosphere, and contact 
 
 ## ✨ Features
 
-• Premium responsive UI designed for a boutique wellness brand  
-• Modular React component architecture with **TypeScript**  
-• Bilingual support (BG / EN) with dynamic language switching  
-• Centralized translation system using React Context  
-• Design token system for scalable styling (**CSS variables + Tailwind**)  
-• Optimized media and layout for fast loading performance  
-• Accessibility-aware semantic HTML structure  
-• Contact form powered by **Netlify Forms** (no backend required)  
-• Production deployment with **Netlify**
+- Premium responsive UI designed for a boutique wellness brand
+- Modular React component architecture with **TypeScript**
+- Bilingual support (BG / EN) with dynamic language switching
+- Centralized translation system using React Context
+- Design token system for scalable styling (**CSS variables + Tailwind**)
+- Responsive WebP images and deferred gallery video loading
+- Accessibility-aware semantic HTML structure
+- Contact form powered by **Netlify Forms** (no backend required)
+- Automated linting, testing, and production builds with **GitHub Actions**
+- Production deployment with **Netlify**
 
 ---
 
@@ -50,6 +51,7 @@ The website provides information about services, studio atmosphere, and contact 
 | TailwindCSS | Utility-first styling |
 | Vitest | Unit & integration testing |
 | Testing Library | Component testing |
+| GitHub Actions | Automated quality checks |
 | Netlify | Deployment & hosting |
 
 ---
@@ -90,19 +92,27 @@ This ensures a clean separation between content, structure, and presentation.
 
 ---
 
+## ⚡ Performance, Quality & Accessibility
 
-## ⚡ Performance & Accessibility
+The project includes responsive image sources, WebP assets, lazy-loaded images,
+deferred gallery videos, viewport-based video playback, and reduced-motion
+handling.
 
-Lighthouse audit results:
+The automated quality suite runs ESLint, 28 tests across 8 test files, and a
+TypeScript production build through:
 
-| Metric | Score |
-|------|------|
-| Performance | 90+ |
-| Accessibility | 100 |
-| Best Practices | 100 |
-| SEO | 100 |
+```bash
+npm run check
+```
 
-Accessibility testing includes automated checks validating semantic HTML, ARIA attributes, and user interface accessibility patterns.
+The tests cover component rendering, semantic headings, selected ARIA
+relationships, language behaviour, responsive media attributes, video playback
+behaviour, and contact-form states. They are not presented as a complete WCAG
+accessibility audit.
+
+A Semrush audit generated on 3 September 2026 reported **95% Site Health**,
+**99% AI Search Health**, and **0 errors**. Three warnings remained for one
+crawled page: missing H1 detection, low word count, and a low text-to-HTML ratio.
 
 ---
 
@@ -153,7 +163,7 @@ This repository is part of a **front-end developer portfolio** and demonstrates:
 https://vilizar.dev
 
 💼 LinkedIn  
-https://linkedin.com/in/VilizarDenichin
+https://www.linkedin.com/in/vilizar-denichin/
 
 📧 Email  
 denichinv@gmail.com
