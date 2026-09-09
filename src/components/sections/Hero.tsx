@@ -31,9 +31,6 @@ const HERO_SLIDES = [
 export function Hero() {
   const { t } = useTranslation();
 
-  const button =
-    "group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-full hover:bg-accent-blush transition-all duration-300 shadow-lg hover:shadow-xl";
-
   const [active, setActive] = useState(0);
   const current = active % HERO_SLIDES.length;
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -47,7 +44,7 @@ export function Hero() {
   }, [prefersReducedMotion]);
   return (
     <section
-      className="relative overflow-hidden min-h-[100dvh] flex items-center justify-center"
+      className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[#201d1b]"
       id="hero"
     >
       <div className="absolute inset-0 z-0">
@@ -77,36 +74,64 @@ export function Hero() {
         ))}
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/20" />
 
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20 z-10 text-center">
-        <div className="absolute top-6 right-6 sm:top-8 sm:right-8 z-20">
-          <LanguageToggle />
-        </div>
-        {/* Badge */}
-        <p className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm tracking-wide text-white/90 backdrop-blur-sm border border-white/20">
-          {t.hero.badge}
-        </p>
+      {/* The parallel rules echo the rails of a Pilates reformer. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-y-0 left-6 z-10 border-l border-white/20 sm:left-10 lg:left-[7vw]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute bottom-9 left-6 right-6 z-10 border-t border-white/20 sm:left-10 sm:right-10 lg:left-[7vw] lg:right-[7vw]"
+      />
 
-        {/* Title */}
-        <h1 className="mt-6 text-5xl md:text-7xl lg:text-8xl text-white mb-6 font-medium tracking-tight leading-tight">
-          {t.hero.title} <br />
-          <span className="text-accent-blush"> {t.hero.titleAccent} </span>
-        </h1>
+      <div className="absolute right-6 top-6 z-30 sm:right-10 sm:top-8 lg:right-[7vw]">
+        <LanguageToggle />
+      </div>
 
-        {/* Subtitle */}
-        <p className="mt-4 text-lg md:text-xl leading-relaxed text-white/90 mb-10 max-w-2xl mx-auto">
-          {t.hero.subtitle}
-        </p>
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-12 py-24 sm:px-16 lg:px-[7vw]">
+        <div className="max-w-4xl border-l border-accent-blush/70 pl-5 sm:pl-8 lg:pl-12">
+          <p className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-white/80 sm:text-sm">
+            <span
+              aria-hidden="true"
+              className="h-px w-8 bg-accent-blush sm:w-12"
+            />
+            {t.hero.badge}
+          </p>
 
-        {/* CTAs */}
-        <div className="flex justify-center mt-6 gap-4">
-          <a className={button} href="#contact">
-            {t.hero.ctaPrimary}
-          </a>
-          <a className={button} href="#services">
-            {t.hero.ctaSecondary}
-          </a>
+          <h1 className="mt-7 max-w-4xl text-[clamp(3rem,8vw,7rem)] font-medium leading-[0.84] tracking-[-0.045em] text-white">
+            <span className="block">{t.hero.title}</span>
+            <span className="mt-3 block pl-[8vw] text-accent-blush sm:mt-4 sm:pl-16 lg:pl-24">
+              {t.hero.titleAccent}
+            </span>
+          </h1>
+
+          <p className="mt-8 max-w-xl text-base leading-relaxed text-white/85 sm:ml-16 sm:text-lg lg:ml-24">
+            {t.hero.subtitle}
+          </p>
+
+          <div className="mt-10 flex flex-col items-start gap-6 sm:ml-16 sm:flex-row sm:items-center sm:gap-8 lg:ml-24">
+            <a
+              className="inline-flex min-h-12 items-center justify-center bg-accent-blush px-7 py-3 text-sm font-medium tracking-wide text-gray-950 transition-colors duration-300 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-black"
+              href="#contact"
+            >
+              {t.hero.ctaPrimary}
+            </a>
+            <a
+              className="group inline-flex min-h-11 items-center gap-3 border-b border-white/50 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-300 hover:border-accent-blush hover:text-accent-blush focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-black"
+              href="#services"
+            >
+              {t.hero.ctaSecondary}
+              <span
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none"
+              >
+                →
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
