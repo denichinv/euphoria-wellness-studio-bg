@@ -5,11 +5,11 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    id: "xbody",
-    image: "/images/services/services-xbody.webp",
-  },
-  {
     id: "pilates",
     image: "/images/services/services-pilates.webp",
+  },
+  {
+    id: "xbody",
+    image: "/images/services/services-xbody.webp",
   },
 ];

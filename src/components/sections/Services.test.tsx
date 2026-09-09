@@ -30,7 +30,12 @@ describe("Services", () => {
   });
 
   it("renders the section heading (h2)", () => {
-    expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: "Pilates Reformer и XBODY EMS в Благоевград",
+      }),
+    ).toBeInTheDocument();
   });
 
   it("renders a card for each service item", () => {
