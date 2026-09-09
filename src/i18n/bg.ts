@@ -2,13 +2,13 @@ import type { Translations } from "./types";
 
 export const bg: Translations = {
   hero: {
-    badge: "Blagoevgrad Wellness Studio",
-    title: "XBody Euphoria",
-    titleAccent: "& Pilates Reformer",
+    badge: "Euphoria Wellness Studio · Благоевград",
+    title: "Пилатес реформър",
+    titleAccent: "& XBody EMS",
     subtitle:
-      "Индивидуални XBody EMS и Pilates Reformer сесии в спокойна и комфортна среда.",
-    ctaPrimary: "Запази час",
-    ctaSecondary: "Виж услугите",
+      "Индивидуални тренировки с персонално внимание в спокойна и комфортна среда.",
+    ctaPrimary: "Заяви час",
+    ctaSecondary: "Разгледай услугите",
   },
   services: {
     badge: "УСЛУГИ",
