@@ -12,30 +12,30 @@ export const en: Translations = {
   },
   services: {
     badge: "SERVICES",
-    heading: "A Personalized Approach to Every Body",
+    heading: "Pilates Reformer and XBODY EMS in Blagoevgrad",
     description:
-      "Choose from our specialized training methods designed to help you reach your personal goals.",
+      "Explore both training methods and choose the option that best suits your goals, preferences and current fitness level.",
   },
   serviceCards: {
     xbody: {
       title: "XBODY EMS",
       description:
-        "The EMS method combines innovative technology and intelligent resistance to deliver a full-body workout in just 20 minutes. Maximum efficiency in minimal time.",
+        "XBODY EMS combines physical exercise with electrical muscle stimulation. The intensity is adjusted individually, and each training session lasts 20 minutes.",
       features: [
         "20-minute sessions",
-        "Deep muscle activation",
-        "Individually adjusted resistance",
+        "Exercise with EMS technology",
+        "Individually adjusted intensity",
       ],
     },
 
     pilates: {
       title: "Pilates Reformer",
       description:
-        "Pilates Reformer provides intelligent resistance through smooth and controlled movements that build strength, improve flexibility and restore natural balance.",
+        "Pilates Reformer training uses spring resistance and controlled movements. The resistance can be adjusted to suit each person's experience level and goals.",
       features: [
-        "Deep muscle stability",
-        "Improved posture and control",
-        "Greater flexibility and balance",
+        "Controlled movements",
+        "Adjustable resistance",
+        "Work on strength, control and mobility",
       ],
     },
   },
