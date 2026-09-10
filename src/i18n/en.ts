@@ -40,19 +40,20 @@ export const en: Translations = {
     },
   },
   about: {
-    badge: "ABOUT US",
-    alt: "our Euphoria studio in Blagoevgrad",
-    heading: "Your Wellness Journey Starts Here",
+    badge: "THE STUDIO",
+    alt: "Entrance to Euphoria Wellness Studio in Blagoevgrad",
+    heading: "A calm setting. A personal approach.",
     description:
-      "At Euphoria, we believe in a personalized approach to movement and body care. Our studio in Blagoevgrad creates a calm and supportive environment where you can focus on your goals. We combine modern technology with proven methods to help you achieve lasting results and a true sense of balance.",
+      "Euphoria Wellness Studio is based in Blagoevgrad and offers Pilates Reformer and XBODY EMS training in a calm environment focused on personal attention.",
+    location: "3 Ilinden St. · Blagoevgrad",
     features: [
       {
-        title: "Certified Trainers",
-        icon: "award",
+        label: "Training",
+        value: "Pilates Reformer and XBODY EMS",
       },
       {
-        title: "Small Training Groups",
-        icon: "users",
+        label: "Approach",
+        value: "Personal attention",
       },
     ],
   },
