@@ -27,9 +27,10 @@ export type Translations = {
     alt: string;
     heading: string;
     description: string;
+    location: string;
     features: {
-      title: string;
-      icon: string;
+      label: string;
+      value: string;
     }[];
   };
 
