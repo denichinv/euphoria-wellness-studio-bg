@@ -59,9 +59,12 @@ export const bg: Translations = {
   },
   gallery: {
     badge: "ГАЛЕРИЯ",
-    heading: "Потопете се в атмосферата на нашето студио",
+    heading: "Поглед към тренировките в Euphoria",
     description:
-      "Спокойна и модерна среда, създадена с грижа за вашия напредък и баланс.",
+      "Реални моменти от Pilates Reformer и XBODY EMS тренировките в нашето студио в Благоевград.",
+    previous: "Предишни кадри",
+    next: "Следващи кадри",
+    collectionLabel: "Снимки и видеа от тренировките в Euphoria",
     alts: {
       reformer:
         "Жена изпълнява упражнение на Pilates Reformer в модерно студио",

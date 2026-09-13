@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import { renderWithProviders } from "../../test/renderWithProviders";
 
 import { Gallery } from "./Gallery";
@@ -22,41 +22,47 @@ describe("Gallery section", () => {
     expect(heading).toBeInTheDocument();
     expect(heading).toHaveAttribute("id", "gallery-title");
   });
-  test("renders at least one gallery item", () => {
-    const items = screen.getAllByRole("listitem");
-    expect(items.length).toBeGreaterThan(0);
+  test("provides accessible gallery controls", () => {
+    expect(
+      screen.getByRole("button", { name: "Предишни кадри" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Следващи кадри" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("figure", {
+        name: "Снимки и видеа от тренировките в Euphoria",
+      }),
+    ).toBeInTheDocument();
   });
-  test("provides responsive sources for gallery images", () => {
-    const images = screen.getAllByRole("img");
+  test("shows the next responsive image when requested", () => {
+    fireEvent.click(screen.getByRole("button", { name: "Следващи кадри" }));
 
-    expect(images).toHaveLength(4);
-
-    images.forEach((image) => {
-      expect(image).toHaveAttribute("src");
-      expect(image).toHaveAttribute("srcset");
-      expect(image).toHaveAttribute("sizes");
-      expect(image).toHaveAttribute("loading", "lazy");
-      expect(image).toHaveAttribute("decoding", "async");
+    const image = screen.getByRole("img", {
+      name: "Двойка в EMS костюми позират в студиото",
     });
+
+    expect(image).toHaveAttribute("src");
+    expect(image).toHaveAttribute("srcset");
+    expect(image).toHaveAttribute("sizes");
+    expect(image).toHaveAttribute("loading", "lazy");
+    expect(image).toHaveAttribute("decoding", "async");
   });
-  test("provides poster images for gallery videos", () => {
-    const videos = document.querySelectorAll("video");
-
-    expect(videos).toHaveLength(2);
-
-    expect(videos[0]).toHaveAttribute(
+  test("provides poster images for active gallery videos", () => {
+    expect(document.querySelector("video")).toHaveAttribute(
       "poster",
       "/images/gallery/gallery-1-poster.webp",
     );
 
-    expect(videos[1]).toHaveAttribute(
+    const nextButton = screen.getByRole("button", { name: "Следващи кадри" });
+    fireEvent.click(nextButton);
+    fireEvent.click(nextButton);
+
+    expect(document.querySelector("video")).toHaveAttribute(
       "poster",
       "/images/gallery/gallery-3-poster.webp",
     );
-
-    videos.forEach((video) => {
-      expect(video).not.toHaveAttribute("autoplay");
-      expect(video).toHaveAttribute("preload", "none");
-    });
+    expect(document.querySelector("video")).not.toHaveAttribute("autoplay");
+    expect(document.querySelector("video")).toHaveAttribute("preload", "none");
   });
 });
