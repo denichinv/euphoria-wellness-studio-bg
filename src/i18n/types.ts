@@ -38,6 +38,9 @@ export type Translations = {
     badge: string;
     heading: string;
     description: string;
+    previous: string;
+    next: string;
+    collectionLabel: string;
     alts: Record<string, string>;
   };
 

@@ -59,9 +59,12 @@ export const en: Translations = {
   },
   gallery: {
     badge: "GALLERY",
-    heading: "A Glimpse into Our Studio",
+    heading: "A look inside Euphoria",
     description:
-      "Explore the atmosphere of Euphoria Wellness Studio and discover the space where modern technology meets personalized wellness.",
+      "Real moments from Pilates Reformer and XBODY EMS training at our studio in Blagoevgrad.",
+    previous: "Previous media",
+    next: "Next media",
+    collectionLabel: "Photos and videos from training at Euphoria",
     alts: {
       reformer:
         "Woman performing an exercise on a Pilates Reformer in a modern studio",
