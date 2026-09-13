@@ -3,14 +3,14 @@ import { useTranslation } from "../../hooks/useTranslation";
 export function Footer() {
   const { t } = useTranslation();
   return (
-    <footer className="bg-gradient-to-b from-slate-950 to-slate-900 text-white py-10 px-5">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 gap-8 mb-8 md:grid-cols-3">
+    <footer className="bg-[#201d1b] text-white">
+      <div className="mx-auto max-w-7xl px-6 pt-16 sm:px-10 sm:pt-20 lg:px-[7vw]">
+        <div className="grid grid-cols-1 gap-12 pb-14 lg:grid-cols-3 lg:gap-10 lg:pb-20">
           {/* Brand Section  */}
-          <div>
-            <h3 className="text-xl mb-4 leading-relaxed">{t.footer.heading}</h3>
+          <div className="min-w-0 border-l border-accent-blush/40 pl-5 sm:pl-8">
+            <p className="font-serif text-3xl sm:text-4xl leading-tight tracking-tight">{t.footer.heading}</p>
 
-            <p className="mt-4 text-sm leading-relaxed text-gray-400">
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
               {t.footer.description}
             </p>
 
@@ -19,18 +19,19 @@ export function Footer() {
               alt={t.footer.alt}
               width={80}
               height={80}
-              className=" mt-4 opacity-90 transition-opacity hover:opacity-100"
+              loading="lazy"
+              className="mt-6"
             />
           </div>
 
           {/*Navigation + Contact Wrapper*/}
-          <div className="grid grid-cols-2 gap-8 md:col-span-2 ">
+          <div className="grid min-w-0 grid-cols-1 gap-10 sm:grid-cols-2 lg:col-span-2 [&_a]:inline-block [&_a]:py-2 [&_a:focus-visible]:outline [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-accent-blush">
             {/* Navigation Section */}
-            <nav>
-              <h4 className="mb-4 tracking-wider">
+            <nav aria-label={t.footer.navigation.title}>
+              <h2 className="mb-5 text-xs font-medium uppercase tracking-[0.18em] text-accent-blush">
                 {t.footer.navigation.title}
-              </h4>
-              <ul className="space-y-2 text-sm leading-relaxed text-gray-400">
+              </h2>
+              <ul className="text-sm leading-relaxed text-white/80">
                 <li>
                   <a
                     href="#services"
@@ -67,26 +68,25 @@ export function Footer() {
             </nav>
 
             {/* Contact Section */}
-            <address className="not-italic">
-              <h4 className="mb-4 tracking-wider">{t.footer.contact.title}</h4>
+            <address className="min-w-0 not-italic">
+              <h2 className="mb-5 text-xs font-medium uppercase tracking-[0.18em] text-accent-blush">{t.footer.contact.title}</h2>
 
-              <ul className="space-y-2 text-sm leading-relaxed text-gray-400">
+              <ul className="space-y-2 text-sm leading-relaxed text-white/80">
                 <li>{t.footer.contact.address[0]}</li>
                 <li>{t.footer.contact.address[1]}</li>
-                <li>
-                  <a
-                    href="tel:+359897869293"
-                    aria-label={t.footer.contact.phoneAria}
-                    className="transition-colors hover:text-accent-blush focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blush/40"
-                  >
-                    {t.footer.contact.phone}
-                  </a>
-                </li>
+                {t.contact.phone.items.map((phone) => (
+                  <li key={phone.href}>
+                    <span className="text-white/60">{phone.label} · </span>
+                    <a href={phone.href} aria-label={phone.aria} className="transition-colors hover:text-accent-blush">
+                      {phone.number}
+                    </a>
+                  </li>
+                ))}
                 <li>
                   <a
                     href="mailto:xbodyeuphoria.wellness.studio@gmail.com"
                     aria-label={t.footer.contact.emailAria}
-                    className="break-all transition-colors hover:text-accent-blush focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blush/40"
+                    className="max-w-full [overflow-wrap:anywhere] transition-colors hover:text-accent-blush"
                   >
                     {t.footer.contact.email}
                   </a>
@@ -97,8 +97,8 @@ export function Footer() {
         </div>
 
         {/* Footer Bottom Bar */}
-        <div className="border-t border-gray-800 pt-8 text-center">
-          <p className="text-sm leading-relaxed text-gray-400">
+        <div className="border-t border-white/15 py-6 sm:py-8">
+          <p className="text-xs leading-relaxed text-white/60">
             © {new Date().getFullYear()} {t.footer.rights}
           </p>
         </div>
