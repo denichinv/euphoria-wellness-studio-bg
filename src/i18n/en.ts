@@ -80,10 +80,10 @@ export const en: Translations = {
   contact: {
     badge: "GET IN TOUCH",
 
-    heading: "Ready for your transformation?",
+    heading: "Your first session starts here.",
 
     description:
-      "Book your first session and experience the difference a personalized approach can make.",
+      "Have a question or want to request a session? Send us a message or give us a call — we'll arrange a day and time that works for you.",
 
     workingHours: {
       title: "Opening Hours",
@@ -133,7 +133,7 @@ export const en: Translations = {
     mapTitle: "Find us on the map",
 
     contactForm: {
-      title: "Get in touch today",
+      title: "Request a session or ask a question",
       name: "Full Name",
       namePlaceholder: "Your name",
       email: "Email Address",
