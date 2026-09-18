@@ -25,7 +25,7 @@ export function Footer() {
           </div>
 
           {/*Navigation + Contact Wrapper*/}
-          <div className="grid min-w-0 grid-cols-1 gap-10 sm:grid-cols-2 lg:col-span-2 [&_a]:inline-block [&_a]:py-2 [&_a:focus-visible]:outline [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-accent-blush">
+          <div className="grid min-w-0 grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-4 sm:grid-cols-2 sm:gap-10 lg:col-span-2 [&_a]:inline-block [&_a]:py-2 [&_a:focus-visible]:outline [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-accent-blush">
             {/* Navigation Section */}
             <nav aria-label={t.footer.navigation.title}>
               <h2 className="mb-5 text-xs font-medium uppercase tracking-[0.18em] text-accent-blush">
