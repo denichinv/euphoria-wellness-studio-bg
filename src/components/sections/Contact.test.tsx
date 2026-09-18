@@ -17,6 +17,28 @@ describe("Contact", () => {
     expect(document.querySelector('button[type="button"]')).toBeNull();
   });
 
+  test("requires an explicit service selection before sending", () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    renderWithProviders(<Contact />);
+    const service = screen.getByRole("combobox");
+
+    expect(service).toHaveValue("");
+    expect(service).toBeRequired();
+    expect(service).toBeInvalid();
+    expect(screen.getByRole("option", { name: "Избери услуга" })).toBeDisabled();
+    fireEvent.submit(document.querySelector("form")!);
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(service).toHaveFocus();
+  });
+
+  test("maps service labels to the correct submitted values", () => {
+    renderWithProviders(<Contact />);
+    expect(screen.getByRole("option", { name: "XBODY EMS" })).toHaveValue("xbody");
+    expect(screen.getByRole("option", { name: "Pilates Reformer" })).toHaveValue("pilates");
+    expect(screen.getByRole("option", { name: "Други" })).toHaveValue("others");
+  });
+
   test("shows success state after filling required fields and submitting", async () => {
     vi.stubGlobal("fetch", () => Promise.resolve({ ok: true }));
 
@@ -30,6 +52,9 @@ describe("Contact", () => {
       target: { value: "vd@example.com" },
     });
 
+    fireEvent.change(screen.getByRole("combobox"), {
+      target: { value: "pilates" },
+    });
     fireEvent.submit(document.querySelector("form")!);
 
     await waitFor(() => {
@@ -38,6 +63,8 @@ describe("Contact", () => {
     expect(screen.getByRole("status")).toBeInTheDocument();
 
     expect(document.querySelector('button[type="button"]')).toBeTruthy();
+    fireEvent.click(document.querySelector('button[type="button"]')!);
+    expect(screen.getByRole("combobox")).toHaveValue("");
   });
 
   test("keeps the form visible when submission fails", async () => {
@@ -53,6 +80,9 @@ describe("Contact", () => {
       target: { value: "vd@example.com" },
     });
 
+    fireEvent.change(screen.getByRole("combobox"), {
+      target: { value: "pilates" },
+    });
     fireEvent.submit(document.querySelector("form")!);
 
     await waitFor(() => {
@@ -88,6 +118,9 @@ describe("Contact", () => {
       target: { value: "vd@example.com" },
     });
 
+    fireEvent.change(screen.getByRole("combobox"), {
+      target: { value: "pilates" },
+    });
     fireEvent.submit(document.querySelector("form")!);
 
     const submitButton = screen.getByRole("button", {
@@ -121,6 +154,9 @@ describe("Contact", () => {
       target: { value: "vd@example.com" },
     });
 
+    fireEvent.change(screen.getByRole("combobox"), {
+      target: { value: "pilates" },
+    });
     fireEvent.submit(document.querySelector("form")!);
 
     expect(await screen.findByRole("alert")).toHaveTextContent(
@@ -166,6 +202,9 @@ describe("Contact", () => {
       },
     );
 
+    fireEvent.change(screen.getByRole("combobox"), {
+      target: { value: "pilates" },
+    });
     fireEvent.submit(document.querySelector("form")!);
 
     await waitFor(() => {
