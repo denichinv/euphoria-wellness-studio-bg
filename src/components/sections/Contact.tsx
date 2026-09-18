@@ -19,11 +19,15 @@ export function Contact() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [service, setService] = useState("pilates");
+  const [service, setService] = useState("");
   const [status, setStatus] = useState<FormStatus>("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!service) {
+      e.currentTarget.querySelector<HTMLSelectElement>("#service")?.focus();
+      return;
+    }
     setStatus("submitting");
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -47,7 +51,7 @@ export function Contact() {
       setEmail("");
       setPhone("");
       setMessage("");
-      setService("pilates");
+      setService("");
     } catch {
       setStatus("error");
     }
@@ -262,14 +266,18 @@ export function Contact() {
                   id="service"
                   className={inputsStyle}
                   value={service}
+                  required
                   onChange={(e) => {
                     setService(e.target.value);
                   }}
                 >
-                  <option value="pilates">
-                    {t.contact.contactForm.serviceOptions[0]}
+                  <option value="" disabled>
+                    {t.contact.contactForm.servicePlaceholder}
                   </option>
                   <option value="xbody">
+                    {t.contact.contactForm.serviceOptions[0]}
+                  </option>
+                  <option value="pilates">
                     {t.contact.contactForm.serviceOptions[1]}
                   </option>
                   <option value="others">

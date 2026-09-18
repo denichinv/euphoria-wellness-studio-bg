@@ -89,6 +89,7 @@ export type Translations = {
       phone: string;
       phonePlaceholder: string;
       service: string;
+      servicePlaceholder: string;
       serviceOptions: string[];
       message: string;
       messagePlaceholder: string;
