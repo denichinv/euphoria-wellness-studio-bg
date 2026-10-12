@@ -96,8 +96,8 @@ export const en: Translations = {
       items: [
         {
           label: "Pilates",
-          number: "+359 890 997 586",
-          href: "tel:+359890997586",
+          number: "+359 877 818 103",
+          href: "tel:+359877818103",
           aria: "Call for Pilates",
         },
         {
