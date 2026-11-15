@@ -6,11 +6,16 @@
   /* Accents */
   --accent-blush: #e8d5d5;
   --accent-mauve: #7f5a55;
+  --studio-ink: #201d1b;
 }
 
 @layer base {
   html {
     font-size: 16px;
+    scroll-padding-top: 1.5rem;
+    scrollbar-gutter: stable;
+    scrollbar-color: var(--accent-mauve) var(--surface);
+    scrollbar-width: thin;
   }
 
   body {
@@ -24,5 +29,45 @@
   h5,
   h6 {
     @apply font-serif;
+  }
+}
+
+* {
+  scrollbar-color: var(--accent-mauve) var(--surface);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-mauve);
+  border: 2px solid var(--surface);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--studio-ink);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--studio-ink);
+}
+
+@media (forced-colors: active) {
+  * {
+    scrollbar-color: auto;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }

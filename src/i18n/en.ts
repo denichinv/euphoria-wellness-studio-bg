@@ -12,11 +12,26 @@ export const en: Translations = {
   },
   services: {
     badge: "SERVICES",
-    heading: "Pilates Reformer and XBODY EMS in Blagoevgrad",
+    heading: "Find your way to train.",
     description:
-      "Explore both training methods and choose the option that best suits your goals, preferences and current fitness level.",
+      "Controlled movement with Pilates Reformer, exercise with XBODY EMS or cardio with Shape Space. Explore the services and get in touch to discuss your choice.",
+    request: "Enquire about this session",
+    shapeBadge: "Now at the studio",
+    shapeNote:
+      "Want to know more? Ask us how a session works and about booking options.",
+    videoLabel: "Shape Space in action",
   },
   serviceCards: {
+    shape: {
+      title: "Shape Space",
+      description:
+        "Cardio training on a treadmill inside a capsule that combines movement with vacuum and infrared technology. A new addition to training at our studio.",
+      features: [
+        "Treadmill cardio",
+        "Vacuum technology",
+        "Infrared technology",
+      ],
+    },
     xbody: {
       title: "XBODY EMS",
       description:
@@ -44,12 +59,12 @@ export const en: Translations = {
     alt: "Entrance to Euphoria Wellness Studio in Blagoevgrad",
     heading: "A calm setting. A personal approach.",
     description:
-      "Euphoria Wellness Studio is based in Blagoevgrad and offers Pilates Reformer and XBODY EMS training in a calm environment focused on personal attention.",
+      "At Euphoria Wellness Studio in Blagoevgrad, we bring together Pilates Reformer, XBODY EMS and Shape Space in a calm setting focused on personal attention.",
     location: "3 Ilinden St. · Blagoevgrad",
     features: [
       {
         label: "Training",
-        value: "Pilates Reformer and XBODY EMS",
+        value: "Pilates Reformer · XBODY EMS · Shape Space",
       },
       {
         label: "Approach",
@@ -66,6 +81,7 @@ export const en: Translations = {
     next: "Next media",
     collectionLabel: "Photos and videos from training at Euphoria",
     alts: {
+      shapeMachine: "Shape Space machine at the studio",
       reformer:
         "Woman performing an exercise on a Pilates Reformer in a modern studio",
       emsCoaches: "Coaches wearing EMS suits in the studio",
@@ -142,7 +158,12 @@ export const en: Translations = {
       phonePlaceholder: "Your phone number",
       service: "Service (required)",
       servicePlaceholder: "Choose a service",
-      serviceOptions: ["XBODY EMS", "Pilates Reformer", "Other"],
+      serviceOptions: {
+        xbody: "XBODY EMS",
+        pilates: "Pilates Reformer",
+        shape: "Shape Space",
+        others: "Other",
+      },
       message: "Message (optional)",
       messagePlaceholder: "Tell us more about your goals...",
       submitButton: "Send request",
@@ -156,9 +177,9 @@ export const en: Translations = {
     },
   },
   footer: {
-    heading: "XBody Euphoria & Pilates Reformer",
+    heading: "Euphoria Wellness Studio",
     description:
-      "Balance, strength, and personalized care through Pilates Reformer and XBODY training in Blagoevgrad.",
+      "Pilates Reformer, XBODY EMS and Shape Space. Training with personal attention in Blagoevgrad.",
     alt: "Euphoria Wellness Studio logo in Blagoevgrad",
 
     navigation: {
@@ -178,6 +199,6 @@ export const en: Translations = {
       emailAria: "Send an email to Euphoria Wellness Studio",
     },
 
-    rights: "Euphoria - XBODY & Pilates Reformer Studio. All rights reserved.",
+    rights: "Euphoria Wellness Studio. All rights reserved.",
   },
 };

@@ -3,12 +3,14 @@ import { useTranslation } from "../../hooks/useTranslation";
 export function Footer() {
   const { t } = useTranslation();
   return (
-    <footer className="bg-[#201d1b] text-white">
-      <div className="mx-auto max-w-7xl px-6 pt-16 sm:px-10 sm:pt-20 lg:px-[7vw]">
+    <footer className="bg-studio-ink text-white">
+      <div className="mx-auto max-w-7xl px-6 pt-16 sm:px-10 sm:pt-20 lg:px-12">
         <div className="grid grid-cols-1 gap-12 pb-14 lg:grid-cols-3 lg:gap-10 lg:pb-20">
           {/* Brand Section  */}
           <div className="min-w-0 border-l border-accent-blush/40 pl-5 sm:pl-8">
-            <p className="font-serif text-3xl sm:text-4xl leading-tight tracking-tight">{t.footer.heading}</p>
+            <p className="font-serif text-3xl sm:text-4xl leading-tight tracking-tight">
+              {t.footer.heading}
+            </p>
 
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
               {t.footer.description}
@@ -69,7 +71,9 @@ export function Footer() {
 
             {/* Contact Section */}
             <address className="min-w-0 not-italic">
-              <h2 className="mb-5 text-xs font-medium uppercase tracking-[0.18em] text-accent-blush">{t.footer.contact.title}</h2>
+              <h2 className="mb-5 text-xs font-medium uppercase tracking-[0.18em] text-accent-blush">
+                {t.footer.contact.title}
+              </h2>
 
               <ul className="space-y-2 text-sm leading-relaxed text-white/80">
                 <li>{t.footer.contact.address[0]}</li>
@@ -77,7 +81,11 @@ export function Footer() {
                 {t.contact.phone.items.map((phone) => (
                   <li key={phone.href}>
                     <span className="text-white/60">{phone.label} · </span>
-                    <a href={phone.href} aria-label={phone.aria} className="transition-colors hover:text-accent-blush">
+                    <a
+                      href={phone.href}
+                      aria-label={phone.aria}
+                      className="transition-colors hover:text-accent-blush"
+                    >
                       {phone.number}
                     </a>
                   </li>

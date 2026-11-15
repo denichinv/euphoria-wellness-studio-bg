@@ -1,3 +1,5 @@
+import type { ServiceId } from "../data/services";
+
 export type ServiceCardContent = {
   title: string;
   description: string;
@@ -18,9 +20,13 @@ export type Translations = {
     badge: string;
     heading: string;
     description: string;
+    request: string;
+    shapeBadge: string;
+    shapeNote: string;
+    videoLabel: string;
   };
 
-  serviceCards: Record<"xbody" | "pilates", ServiceCardContent>;
+  serviceCards: Record<"xbody" | "pilates" | "shape", ServiceCardContent>;
 
   about: {
     badge: string;
@@ -90,7 +96,7 @@ export type Translations = {
       phonePlaceholder: string;
       service: string;
       servicePlaceholder: string;
-      serviceOptions: string[];
+      serviceOptions: Record<ServiceId | "others", string>;
       message: string;
       messagePlaceholder: string;
       submitButton: string;

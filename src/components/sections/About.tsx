@@ -7,9 +7,9 @@ export function About() {
     <section
       id="about"
       aria-labelledby="about-title"
-      className="overflow-hidden bg-[#201d1b] py-24 text-white sm:py-28 lg:py-32"
+      className="overflow-hidden bg-studio-ink py-24 text-white sm:py-28 lg:py-32"
     >
-      <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-[7vw]">
+      <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
         <div className="grid gap-8 border-l border-accent-blush/40 pl-5 sm:pl-8 md:grid-cols-12 md:items-end lg:pl-12">
           <div className="md:col-span-8">
             <p className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-accent-blush sm:text-sm">

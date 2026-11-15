@@ -113,14 +113,22 @@
 
   <body>
     <div id="root"></div>
-    <form name="contact" method="POST" data-netlify="true" hidden>
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
       <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="bot-field" />
       <input type="text" name="name" />
       <input type="email" name="email" />
       <input type="text" name="phone" />
       <select name="service">
         <option value="pilates">Pilates Reformer</option>
         <option value="xbody">XBODY EMS</option>
+        <option value="shape">Shape Space</option>
         <option value="others">Others</option>
       </select>
       <textarea name="message"></textarea>

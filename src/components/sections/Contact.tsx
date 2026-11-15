@@ -1,16 +1,24 @@
 import { useState } from "react";
 import { Phone, Mail, Instagram, Clock } from "lucide-react";
 import { useTranslation } from "../../hooks/useTranslation";
+import type { FormService } from "../../data/services";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
-export function Contact() {
+export function Contact({
+  selectedService,
+  onServiceChange,
+}: {
+  selectedService?: FormService;
+  onServiceChange?: (service: FormService) => void;
+}) {
   const { t } = useTranslation();
 
   const divStyle: string =
     "size-10 flex items-center justify-center shrink-0 text-accent-mauve";
 
-  const listStyle: string = "flex min-w-0 gap-4 items-start border-b border-gray-900/15 py-7 [&>div:last-child]:min-w-0 [&>div:last-child]:break-words";
+  const listStyle: string =
+    "flex min-w-0 gap-4 items-start border-b border-gray-900/15 py-7 [&>div:last-child]:min-w-0 [&>div:last-child]:break-words";
   const inputsStyle: string =
     "w-full min-w-0 rounded-sm border border-gray-900/20 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent-mauve focus:border-transparent transition-colors text-gray-900";
   const fieldStyle: string = "space-y-1";
@@ -19,7 +27,9 @@ export function Contact() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [service, setService] = useState("");
+  const [localService, setLocalService] = useState<FormService>("");
+  const service = selectedService ?? localService;
+  const setService = onServiceChange ?? setLocalService;
   const [status, setStatus] = useState<FormStatus>("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -61,25 +71,24 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-title"
-      className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-[7vw] py-24 sm:py-28 lg:py-32"
+      className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-24 sm:py-28 lg:py-32"
     >
-        <header className="border-l border-accent-mauve/35 pl-5 sm:pl-8 lg:pl-12">
-          <p className="text-accent-mauve uppercase tracking-widest text-sm mb-2">
-            {t.contact.badge}
-          </p>
+      <header className="border-l border-accent-mauve/35 pl-5 sm:pl-8 lg:pl-12">
+        <p className="text-accent-mauve uppercase tracking-widest text-sm mb-2">
+          {t.contact.badge}
+        </p>
 
-          <h2
-            id="contact-title"
-            className="mt-6 max-w-4xl text-4xl leading-[0.95] tracking-[-0.035em] text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl"
-          >
-            {t.contact.heading}
-          </h2>
+        <h2
+          id="contact-title"
+          className="mt-6 max-w-4xl text-4xl leading-[0.95] tracking-[-0.035em] text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl"
+        >
+          {t.contact.heading}
+        </h2>
 
-          <p className="mt-8 max-w-2xl text-base sm:text-lg text-gray-600 leading-relaxed">
-            {t.contact.description}
-          </p>
-
-        </header>
+        <p className="mt-8 max-w-2xl text-base sm:text-lg text-gray-600 leading-relaxed">
+          {t.contact.description}
+        </p>
+      </header>
       <div className="mt-14 grid min-w-0 grid-cols-1 gap-12 lg:mt-20 lg:grid-cols-12 lg:gap-16">
         <div className="min-w-0 lg:col-span-5">
           <ul className="flex flex-col border-t border-gray-900/15">
@@ -142,7 +151,9 @@ export function Contact() {
               </a>
               <div className="min-w-0">
                 <h3 className="text-gray-900 mb-1">{t.contact.email.title}</h3>
-                <p className="text-gray-600 break-words">{t.contact.email.address}</p>
+                <p className="text-gray-600 break-words">
+                  {t.contact.email.address}
+                </p>
               </div>
             </li>
 
@@ -174,7 +185,6 @@ export function Contact() {
               </div>
             </li>
           </ul>
-
         </div>
 
         {/* Right column */}
@@ -268,21 +278,19 @@ export function Contact() {
                   value={service}
                   required
                   onChange={(e) => {
-                    setService(e.target.value);
+                    setService(e.target.value as FormService);
                   }}
                 >
                   <option value="" disabled>
                     {t.contact.contactForm.servicePlaceholder}
                   </option>
-                  <option value="xbody">
-                    {t.contact.contactForm.serviceOptions[0]}
-                  </option>
-                  <option value="pilates">
-                    {t.contact.contactForm.serviceOptions[1]}
-                  </option>
-                  <option value="others">
-                    {t.contact.contactForm.serviceOptions[2]}
-                  </option>
+                  {Object.entries(t.contact.contactForm.serviceOptions).map(
+                    ([value, label]) => (
+                      <option key={value} value={value}>
+                        {label}
+                      </option>
+                    ),
+                  )}
                 </select>
               </div>
               <div className={fieldStyle}>
@@ -319,15 +327,17 @@ export function Contact() {
             </form>
           )}
         </div>
-          <div className="min-w-0 lg:col-span-12 border-t border-gray-900/15 pt-6">
-            <p className="mb-5 text-sm tracking-wide text-gray-600">{t.footer.contact.address.join(" · ")}</p>
-            <iframe
-              title={t.contact.mapTitle}
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11856.862851080612!2d23.08025626533252!3d42.0171046396258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14aaf50037bd5417%3A0xff8ae402cc4aa9af!2sX%20Body%20Euphoria%20%26%20Pilates%20Reformer%20studio!5e0!3m2!1sen!2suk!4v1770937952841!5m2!1sen!2suk"
-              className="block w-full h-[280px] sm:h-[360px] border-0"
-              loading="lazy"
-            />
-          </div>
+        <div className="min-w-0 lg:col-span-12 border-t border-gray-900/15 pt-6">
+          <p className="mb-5 text-sm tracking-wide text-gray-600">
+            {t.footer.contact.address.join(" · ")}
+          </p>
+          <iframe
+            title={t.contact.mapTitle}
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11856.862851080612!2d23.08025626533252!3d42.0171046396258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14aaf50037bd5417%3A0xff8ae402cc4aa9af!2sX%20Body%20Euphoria%20%26%20Pilates%20Reformer%20studio!5e0!3m2!1sen!2suk!4v1770937952841!5m2!1sen!2suk"
+            className="block w-full h-[280px] sm:h-[360px] border-0"
+            loading="lazy"
+          />
+        </div>
       </div>
     </section>
   );

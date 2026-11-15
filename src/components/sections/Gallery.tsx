@@ -172,6 +172,7 @@ export function Gallery() {
                   key={activeItem.src}
                   src={activeItem.src}
                   poster={activeItem.poster}
+                  label={activeItem.alt}
                   className={`h-full w-full ${activeItem.format === "portrait" ? "object-cover lg:object-contain" : "object-cover"}`}
                 />
                 <span className="sr-only">{activeItem.alt}</span>
