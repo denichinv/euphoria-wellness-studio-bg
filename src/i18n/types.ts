@@ -51,7 +51,9 @@ export type Translations = {
     previous: string;
     next: string;
     collectionLabel: string;
+    filters: Record<"all" | "pilates" | "xbody" | "shape" | "studio", string>;
     alts: Record<string, string>;
+    captions: Record<string, { title: string; text: string }>;
   };
 
   contact: {
