@@ -3,12 +3,19 @@ import type { Translations } from "./types";
 export const bg: Translations = {
   hero: {
     badge: "Euphoria Wellness Studio · Благоевград",
-    title: "Пилатес реформър",
-    titleAccent: "& XBody EMS",
+    title: "Промяната",
+    titleAccent: "започва с теб.",
     subtitle:
-      "Индивидуални тренировки с персонално внимание в спокойна и комфортна среда.",
+      "Pilates Reformer, XBODY EMS и Shape Space в Благоевград. Избери своята тренировка — ние ще ти помогнем да направиш първата крачка.",
     ctaPrimary: "Заяви час",
     ctaSecondary: "Разгледай услугите",
+    discoverShape: "Запознай се със Shape Space",
+    imageAlts: {
+      pilates: "Pilates Reformer оборудване в залата с огледала",
+      xbody: "Залата за XBODY EMS с оборудване и тренировъчни костюми",
+    },
+    imageLabels: { pilates: "Pilates Reformer", xbody: "XBODY EMS" },
+    imagesLabel: "Снимки от студиото",
   },
   services: {
     badge: "УСЛУГИ",

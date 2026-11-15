@@ -14,6 +14,10 @@ export type Translations = {
     subtitle: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    discoverShape: string;
+    imageAlts: Record<"pilates" | "xbody", string>;
+    imageLabels: Record<"pilates" | "xbody", string>;
+    imagesLabel: string;
   };
 
   services: {

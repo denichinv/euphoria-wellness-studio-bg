@@ -1,137 +1,157 @@
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { LanguageToggle } from "../ui/LanguageToggle";
-import { useEffect, useState } from "react";
 import { useTranslation } from "../../hooks/useTranslation";
-import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
-const HERO_SLIDES = [
-  {
-    desktop: {
-      srcSet:
-        "/images/hero/hero-slide-1-desktop-1280.webp 1280w, /images/hero/hero-slide-1-desktop-1920.webp 1920w",
-    },
-    mobile: {
-      src: "/images/hero/hero-slide-1-mobile-640.webp",
-      srcSet:
-        "/images/hero/hero-slide-1-mobile-640.webp 640w, /images/hero/hero-slide-1-mobile-960.webp 960w",
-    },
-  },
-  {
-    desktop: {
-      srcSet:
-        "/images/hero/hero-slide-2-desktop-1280.webp 1280w, /images/hero/hero-slide-2-desktop-1920.webp 1920w",
-    },
-    mobile: {
-      src: "/images/hero/hero-slide-2-mobile-640.webp",
-      srcSet:
-        "/images/hero/hero-slide-2-mobile-640.webp 640w, /images/hero/hero-slide-2-mobile-960.webp 960w",
-    },
-  },
-] as const;
+const HERO_IMAGE = {
+  src: "/images/refresh/reformer-room-1280.webp",
+  srcSet:
+    "/images/refresh/reformer-room-640.webp 640w, /images/refresh/reformer-room-1280.webp 1280w",
+};
 
 export function Hero() {
   const { t } = useTranslation();
 
-  const [active, setActive] = useState(0);
-  const current = active % HERO_SLIDES.length;
-  const prefersReducedMotion = usePrefersReducedMotion();
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-    const id = window.setInterval(() => {
-      setActive((prev) => prev + 1);
-    }, 7000);
-
-    return () => window.clearInterval(id);
-  }, [prefersReducedMotion]);
   return (
     <section
-      className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[#201d1b]"
       id="hero"
+      aria-labelledby="hero-title"
+      className="bg-studio-ink text-white"
     >
-      <div className="absolute inset-0 z-0">
-        {HERO_SLIDES.map((slide, index) => (
-          <picture
-            key={slide.mobile.src}
-            className={`absolute inset-0 block motion-safe:transition-opacity motion-safe:duration-1000 ${
-              current === index ? "opacity-100" : "opacity-0"
-            }`}
+      <div className="mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-[5vw]">
+        <header className="flex items-center justify-between gap-6 border-b border-white/20 py-6 sm:py-8">
+          <a
+            href="#hero"
+            className="font-serif text-3xl tracking-tight focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blush"
           >
-            <source
-              media="(min-width: 768px)"
-              srcSet={slide.desktop.srcSet}
-              sizes="100vw"
-            />
-            <img
-              src={slide.mobile.src}
-              srcSet={slide.mobile.srcSet}
-              sizes="100vw"
-              alt=""
-              aria-hidden="true"
-              className="h-full w-full object-cover object-center"
-              loading={index === 0 ? "eager" : "lazy"}
-              fetchPriority={index === 0 ? "high" : "auto"}
-            />
-          </picture>
-        ))}
-      </div>
-
-      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/20" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/20" />
-
-      {/* The parallel rules echo the rails of a Pilates reformer. */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-y-0 left-6 z-10 border-l border-white/20 sm:left-10 lg:left-[7vw]"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute bottom-9 left-6 right-6 z-10 border-t border-white/20 sm:left-10 sm:right-10 lg:left-[7vw] lg:right-[7vw]"
-      />
-
-      <div className="absolute right-6 top-6 z-30 sm:right-10 sm:top-8 lg:right-[7vw]">
-        <LanguageToggle />
-      </div>
-
-      <div className="relative z-20 mx-auto w-full max-w-7xl px-12 py-24 sm:px-16 lg:px-[7vw]">
-        <div className="max-w-4xl border-l border-accent-blush/70 pl-5 sm:pl-8 lg:pl-12">
-          <p className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-white/80 sm:text-sm">
-            <span
-              aria-hidden="true"
-              className="h-px w-8 bg-accent-blush sm:w-12"
-            />
-            {t.hero.badge}
-          </p>
-
-          <h1 className="mt-7 max-w-4xl text-[clamp(3rem,8vw,7rem)] font-medium leading-[0.84] tracking-[-0.045em] text-white">
-            <span className="block">{t.hero.title}</span>
-            <span className="mt-3 block pl-[8vw] text-accent-blush sm:mt-4 sm:pl-16 lg:pl-24">
-              {t.hero.titleAccent}
-            </span>
-          </h1>
-
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-white/85 sm:ml-16 sm:text-lg lg:ml-24">
-            {t.hero.subtitle}
-          </p>
-
-          <div className="mt-10 flex flex-col items-start gap-6 sm:ml-16 sm:flex-row sm:items-center sm:gap-8 lg:ml-24">
+            Euphoria<span className="text-accent-blush">.</span>
+          </a>
+          <nav
+            aria-label={t.footer.navigation.title}
+            className="hidden gap-8 text-sm text-white/80 md:flex"
+          >
             <a
-              className="inline-flex min-h-12 items-center justify-center bg-accent-blush px-7 py-3 text-sm font-medium tracking-wide text-gray-950 transition-colors duration-300 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-black"
-              href="#contact"
-            >
-              {t.hero.ctaPrimary}
-            </a>
-            <a
-              className="group inline-flex min-h-11 items-center gap-3 border-b border-white/50 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-300 hover:border-accent-blush hover:text-accent-blush focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-black"
+              className="py-2 hover:text-accent-blush focus-visible:outline focus-visible:outline-2"
               href="#services"
             >
-              {t.hero.ctaSecondary}
-              <span
-                aria-hidden="true"
-                className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none"
-              >
-                →
+              {t.footer.navigation.services}
+            </a>
+            <a
+              className="py-2 hover:text-accent-blush focus-visible:outline focus-visible:outline-2"
+              href="#gallery"
+            >
+              {t.footer.navigation.gallery}
+            </a>
+            <a
+              className="py-2 hover:text-accent-blush focus-visible:outline focus-visible:outline-2"
+              href="#contact"
+            >
+              {t.footer.navigation.contact}
+            </a>
+          </nav>
+          <LanguageToggle />
+        </header>
+
+        <div className="grid gap-10 pb-8 pt-12 sm:pt-16 lg:min-h-[min(850px,calc(100svh-106px))] lg:grid-cols-12 lg:gap-6 lg:py-10">
+          <div className="relative z-10 flex min-w-0 flex-col justify-center lg:col-span-7 lg:py-12 lg:pr-4">
+            <p className="max-w-sm text-[0.65rem] uppercase leading-relaxed tracking-[0.2em] text-accent-blush sm:text-xs">
+              {t.hero.badge}
+            </p>
+            <h1
+              id="hero-title"
+              className="mt-7 text-[clamp(3.2rem,6.7vw,7rem)] font-medium leading-[0.94] tracking-[-0.04em]"
+            >
+              <span className="block">{t.hero.title}</span>
+              <span className="mt-2 block max-w-[11ch] text-accent-blush">
+                {t.hero.titleAccent}
               </span>
+            </h1>
+            <p className="mt-8 max-w-md text-sm leading-7 text-white/75 sm:text-base sm:leading-8">
+              {t.hero.subtitle}
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <a
+                href="#contact"
+                className="inline-flex min-h-12 items-center gap-5 bg-accent-blush px-6 py-3 text-sm font-medium text-studio-ink transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-blush"
+              >
+                {t.hero.ctaPrimary}
+                <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
+              <a
+                href="#services"
+                className="inline-flex min-h-12 items-center gap-3 border-b border-white/40 text-sm text-white/85 hover:text-accent-blush focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blush"
+              >
+                {t.hero.ctaSecondary}
+                <ArrowDown size={15} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+
+          <div className="relative min-w-0 lg:col-span-5 lg:self-center">
+            <picture className="mx-auto block w-full max-w-[30rem]">
+              <source
+                media="(min-width: 768px)"
+                srcSet={HERO_IMAGE.srcSet}
+                sizes="(min-width: 1024px) 480px, 90vw"
+              />
+              <img
+                src={HERO_IMAGE.src}
+                srcSet={HERO_IMAGE.srcSet}
+                sizes="(min-width: 1024px) 480px, 90vw"
+                width={1280}
+                height={1707}
+                alt={t.hero.imageAlts.pilates}
+                fetchPriority="high"
+                loading="eager"
+                className="block h-auto w-full"
+              />
+            </picture>
+            <a
+              href="#shape-space"
+              className="group relative z-10 -mt-12 ml-4 flex min-h-28 max-w-sm items-center gap-3 border border-white/15 bg-studio-ink p-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-blush sm:ml-8 sm:gap-4 lg:-ml-8"
+            >
+              <img
+                src="/images/refresh/shape-editorial-640.webp"
+                alt=""
+                width={72}
+                height={88}
+                className="h-24 w-16 shrink-0 object-cover object-center sm:w-20"
+              />
+              <span className="flex-1">
+                <span className="block text-[0.6rem] uppercase tracking-[0.18em] text-accent-blush">
+                  {t.services.shapeBadge}
+                </span>
+                <span className="mt-2 block max-w-48 font-serif text-2xl leading-tight">
+                  {t.hero.discoverShape}
+                </span>
+              </span>
+              <ArrowUpRight
+                size={20}
+                aria-hidden="true"
+                className="shrink-0 text-accent-blush motion-safe:transition-transform motion-safe:group-hover:-translate-y-1 motion-safe:group-hover:translate-x-1"
+              />
             </a>
           </div>
+        </div>
+
+        <div className="flex flex-wrap gap-x-7 gap-y-3 border-t border-white/20 py-6 text-[0.65rem] uppercase tracking-[0.15em] text-white/65 sm:gap-x-12 sm:text-xs">
+          <a
+            href="#pilates"
+            className="py-1 hover:text-white focus-visible:outline focus-visible:outline-2"
+          >
+            Pilates Reformer
+          </a>
+          <a
+            href="#xbody"
+            className="py-1 hover:text-white focus-visible:outline focus-visible:outline-2"
+          >
+            XBODY EMS
+          </a>
+          <a
+            href="#shape-space"
+            className="py-1 text-accent-blush hover:text-white focus-visible:outline focus-visible:outline-2"
+          >
+            Shape Space
+          </a>
         </div>
       </div>
     </section>

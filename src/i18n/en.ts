@@ -3,12 +3,19 @@ import type { Translations } from "./types";
 export const en: Translations = {
   hero: {
     badge: "Euphoria Wellness Studio · Blagoevgrad",
-    title: "Pilates Reformer",
-    titleAccent: "& XBody EMS",
+    title: "Change",
+    titleAccent: "starts with you.",
     subtitle:
-      "Individual training with personal attention in a calm and comfortable environment.",
+      "Pilates Reformer, XBODY EMS and Shape Space in Blagoevgrad. Choose your training — we will help you take the first step.",
     ctaPrimary: "Request a session",
     ctaSecondary: "Explore services",
+    discoverShape: "Discover Shape Space",
+    imageAlts: {
+      pilates: "Pilates Reformer equipment in the mirrored studio",
+      xbody: "The XBODY EMS room with exercise equipment and training suits",
+    },
+    imageLabels: { pilates: "Pilates Reformer", xbody: "XBODY EMS" },
+    imagesLabel: "Studio photos",
   },
   services: {
     badge: "SERVICES",

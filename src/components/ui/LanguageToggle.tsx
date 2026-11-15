@@ -15,7 +15,7 @@ export function LanguageToggle() {
         type="button"
         aria-pressed={language === "bg"}
         onClick={() => setLanguage("bg")}
-        className={`rounded-sm transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+        className={`min-h-11 min-w-11 cursor-pointer rounded-sm transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
           language === "bg"
             ? "font-medium opacity-100"
             : "opacity-60 hover:opacity-100"
@@ -30,7 +30,7 @@ export function LanguageToggle() {
         type="button"
         aria-pressed={language === "en"}
         onClick={() => setLanguage("en")}
-        className={`rounded-sm transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+        className={`min-h-11 min-w-11 cursor-pointer rounded-sm transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
           language === "en"
             ? "font-medium opacity-100"
             : "opacity-60 hover:opacity-100"
