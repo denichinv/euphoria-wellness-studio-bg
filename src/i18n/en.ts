@@ -250,6 +250,11 @@ export const en: Translations = {
           handle: "@xbody_euphoria",
           href: "https://instagram.com/xbody_euphoria",
         },
+        {
+          label: "Instagram profile for i-motion PRO",
+          handle: "@imotionpro.blg",
+          href: "https://www.instagram.com/imotionpro.blg/",
+        },
       ],
     },
     mapTitle: "Find us on the map",

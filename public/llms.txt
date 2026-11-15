@@ -1,6 +1,6 @@
 # Euphoria Wellness Studio
 
-> Euphoria is a wellness and fitness studio in Blagoevgrad, Bulgaria, offering Pilates Reformer and XBODY EMS training.
+> Euphoria is a wellness and fitness studio in Blagoevgrad, Bulgaria, offering Pilates Reformer, XBODY EMS and Shape Space training.
 
 The studio provides personalized training in a supportive environment at 3 Ilinden Street, 2700 Blagoevgrad, Bulgaria.
 
@@ -10,7 +10,8 @@ The studio provides personalized training in a supportive environment at 3 Ilind
 
 ## Services
 
-- [Pilates Reformer and XBODY EMS](https://euphoria-wellness.com/#services): Information about the training services offered by the studio.
+- [Pilates Reformer, XBODY EMS and Shape Space](https://euphoria-wellness.com/#services): Information about the training services offered by the studio.
+- [Shape Space](https://euphoria-wellness.com/#shape-space): Treadmill cardio with vacuum and infrared technology.
 
 ## Contact
 

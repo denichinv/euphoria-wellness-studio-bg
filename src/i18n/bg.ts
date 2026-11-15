@@ -242,6 +242,11 @@ export const bg: Translations = {
           handle: "@xbody_euphoria",
           href: "https://instagram.com/xbody_euphoria",
         },
+        {
+          label: "i-motion PRO",
+          handle: "@imotionpro.blg",
+          href: "https://www.instagram.com/imotionpro.blg/",
+        },
       ],
     },
     mapTitle: "Намерете ни на картата",
