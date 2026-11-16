@@ -1,57 +1,73 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../test/renderWithProviders";
-
 import { Hero } from "./Hero";
 
 describe("Hero section", () => {
-  beforeEach(() => {
-    renderWithProviders(<Hero />);
-  });
+  beforeEach(() => localStorage.clear());
 
-  it("renders main heading", () => {
+  it("renders the main heading and location", () => {
+    renderWithProviders(<Hero />);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      /Пилатес реформър\s*& XBody EMS/i,
+      /Промяната\s*започва с теб\./i,
     );
     expect(
       screen.getByText("Euphoria Wellness Studio · Благоевград"),
     ).toBeInTheDocument();
   });
 
-  it("renders description paragraph", () => {
+  it("introduces all three services", () => {
+    renderWithProviders(<Hero />);
     expect(
-      screen.getByText(/индивидуални тренировки с персонално внимание/i, {
-        selector: "p",
-      }),
+      screen.getByText(
+        /Pilates Reformer, XBODY EMS и Shape Space в Благоевград/i,
+        { selector: "p" },
+      ),
     ).toBeInTheDocument();
   });
 
-  it("renders links with correct hrefs", () => {
+  it("links to the enquiry form and services", () => {
+    renderWithProviders(<Hero />);
     expect(screen.getByRole("link", { name: "Заяви час" })).toHaveAttribute(
       "href",
       "#contact",
     );
-
     expect(
       screen.getByRole("link", { name: "Разгледай услугите" }),
     ).toHaveAttribute("href", "#services");
   });
 
-  it("provides responsive sources for each hero slide", () => {
+  it("provides responsive sources for the studio photo", () => {
+    renderWithProviders(<Hero />);
     const pictures = document.querySelectorAll("picture");
-
-    expect(pictures).toHaveLength(2);
-
+    expect(pictures).toHaveLength(1);
     pictures.forEach((picture) => {
-      const source = picture.querySelector("source");
-      const image = picture.querySelector("img");
-
-      expect(source).toHaveAttribute("media", "(min-width: 768px)");
-      expect(source).toHaveAttribute("srcset");
-      expect(source).toHaveAttribute("sizes", "100vw");
-      expect(image).toHaveAttribute("src");
-      expect(image).toHaveAttribute("srcset");
-      expect(image).toHaveAttribute("sizes", "100vw");
-      expect(image).toHaveAttribute("alt", "");
+      expect(picture.querySelector("source")).toHaveAttribute("srcset");
+      expect(picture.querySelector("img")).toHaveAttribute("srcset");
+      expect(picture.querySelector("img")).toHaveAttribute("sizes");
     });
+    expect(
+      screen.getByRole("img", {
+        name: "Pilates Reformer оборудване в залата с огледала",
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("shows only the selected static Pilates studio photo", () => {
+    renderWithProviders(<Hero />);
+    expect(screen.getAllByRole("img")).toHaveLength(1);
+    const image = screen.getByRole("img", {
+      name: "Pilates Reformer оборудване в залата с огледала",
+    });
+    expect(image).toHaveAttribute(
+      "src",
+      "/images/refresh/reformer-room-1280.webp",
+    );
+    expect(image).toHaveAttribute("width", "1280");
+    expect(image).toHaveAttribute("height", "1707");
+    expect(
+      screen.queryByRole("img", {
+        name: "Залата за XBODY EMS с оборудване и тренировъчни костюми",
+      }),
+    ).not.toBeInTheDocument();
   });
 });

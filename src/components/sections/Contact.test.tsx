@@ -26,7 +26,9 @@ describe("Contact", () => {
     expect(service).toHaveValue("");
     expect(service).toBeRequired();
     expect(service).toBeInvalid();
-    expect(screen.getByRole("option", { name: "Избери услуга" })).toBeDisabled();
+    expect(
+      screen.getByRole("option", { name: "Избери услуга" }),
+    ).toBeDisabled();
     fireEvent.submit(document.querySelector("form")!);
     expect(fetchMock).not.toHaveBeenCalled();
     expect(service).toHaveFocus();
@@ -34,9 +36,16 @@ describe("Contact", () => {
 
   test("maps service labels to the correct submitted values", () => {
     renderWithProviders(<Contact />);
-    expect(screen.getByRole("option", { name: "XBODY EMS" })).toHaveValue("xbody");
-    expect(screen.getByRole("option", { name: "Pilates Reformer" })).toHaveValue("pilates");
+    expect(screen.getByRole("option", { name: "XBODY EMS" })).toHaveValue(
+      "xbody",
+    );
+    expect(
+      screen.getByRole("option", { name: "Pilates Reformer" }),
+    ).toHaveValue("pilates");
     expect(screen.getByRole("option", { name: "Други" })).toHaveValue("others");
+    expect(screen.getByRole("option", { name: "Shape Space" })).toHaveValue(
+      "shape",
+    );
   });
 
   test("shows success state after filling required fields and submitting", async () => {

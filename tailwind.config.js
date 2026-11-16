@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        "studio-ink": "var(--studio-ink)",
         surface: "var(--surface)",
         "surface-light": "var(--surface-light)",
         "accent-blush": "var(--accent-blush)",

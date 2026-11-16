@@ -3,24 +3,46 @@ import type { Translations } from "./types";
 export const bg: Translations = {
   hero: {
     badge: "Euphoria Wellness Studio · Благоевград",
-    title: "Пилатес реформър",
-    titleAccent: "& XBody EMS",
+    title: "Промяната",
+    titleAccent: "започва с теб.",
     subtitle:
-      "Индивидуални тренировки с персонално внимание в спокойна и комфортна среда.",
+      "Pilates Reformer, XBODY EMS и Shape Space в Благоевград. Избери своята тренировка — ние ще ти помогнем да направиш първата крачка.",
     ctaPrimary: "Заяви час",
     ctaSecondary: "Разгледай услугите",
+    discoverShape: "Запознай се със Shape Space",
+    imageAlts: {
+      pilates: "Pilates Reformer оборудване в залата с огледала",
+      xbody: "Залата за XBODY EMS с оборудване и тренировъчни костюми",
+    },
+    imageLabels: { pilates: "Pilates Reformer", xbody: "XBODY EMS" },
+    imagesLabel: "Снимки от студиото",
   },
   services: {
     badge: "УСЛУГИ",
-    heading: "Pilates Reformer и XBODY EMS в Благоевград",
+    heading: "Избери как да тренираш.",
     description:
-      "Разгледайте двата тренировъчни метода и изберете подходящия вариант според своите цели, предпочитания и ниво на подготовка.",
+      "Пилатес реформър, XBODY EMS или Shape Space — три различни възможности според това как обичаш да се движиш. Ако се колебаеш, ще ти помогнем с избора.",
+    request: "Искам да опитам",
+    shapeBadge: "Вече в студиото",
+    shapeNote:
+      "Любопитно ти е как протича една сесия? Пиши ни — ще ти разкажем повече и ще уточним удобен час.",
+    videoLabel: "Shape Space в действие",
   },
   serviceCards: {
+    shape: {
+      title: "Shape Space",
+      description:
+        "Кардио на пътека в капсула с вакуумна и инфрачервена технология. Shape Space е най-новото попълнение в студиото за тези, които искат да разнообразят тренировките си.",
+      features: [
+        "Кардио на пътека",
+        "Вакуумна технология",
+        "Инфрачервена технология",
+      ],
+    },
     xbody: {
       title: "XBODY EMS",
       description:
-        "XBODY EMS комбинира физически упражнения с електромускулна стимулация. Интензивността се настройва индивидуално, а една тренировъчна сесия продължава 20 минути.",
+        "20-минутна тренировка, в която упражненията се съчетават с електромускулна стимулация. Интензивността се настройва спрямо теб.",
       features: [
         "20-минутни сесии",
         "Упражнения с EMS технология",
@@ -31,11 +53,11 @@ export const bg: Translations = {
     pilates: {
       title: "Pilates Reformer",
       description:
-        "Тренировките с Pilates Reformer използват пружинно съпротивление и контролирани движения. Натоварването може да бъде адаптирано спрямо нивото и целите на трениращия.",
+        "Упражнения на реформър с регулируемо пружинно съпротивление. Работиш върху сила, контрол и подвижност, с натоварване според възможностите ти.",
       features: [
         "Контролирани движения",
         "Регулируемо съпротивление",
-        "Работа върху сила, контрол и мобилност",
+        "Сила, контрол и подвижност",
       ],
     },
   },
@@ -44,12 +66,12 @@ export const bg: Translations = {
     alt: "Входът на Euphoria Wellness Studio в Благоевград",
     heading: "Спокойна среда. Персонален подход.",
     description:
-      "Euphoria Wellness Studio се намира в Благоевград и предлага Pilates Reformer и XBODY EMS тренировки в спокойна среда с фокус върху персоналното внимание.",
+      "В нашето студио в Благоевград можеш да тренираш Pilates Reformer, XBODY EMS и Shape Space. Държим на спокойната обстановка и на вниманието към всеки човек.",
     location: "ул. „Илинден“ № 3 · Благоевград",
     features: [
       {
         label: "Тренировки",
-        value: "Pilates Reformer и XBODY EMS",
+        value: "Pilates Reformer · XBODY EMS · Shape Space",
       },
       {
         label: "Подход",
@@ -59,13 +81,113 @@ export const bg: Translations = {
   },
   gallery: {
     badge: "ГАЛЕРИЯ",
-    heading: "Поглед към тренировките в Euphoria",
+    heading: "Усети атмосферата.",
     description:
-      "Реални моменти от Pilates Reformer и XBODY EMS тренировките в нашето студио в Благоевград.",
+      "Погледни как тренираме и намери своята мотивация да започнеш.",
     previous: "Предишни кадри",
     next: "Следващи кадри",
     collectionLabel: "Снимки и видеа от тренировките в Euphoria",
+    filters: {
+      all: "Всички",
+      pilates: "Pilates",
+      xbody: "XBODY",
+      shape: "Shape Space",
+      studio: "Студиото",
+    },
+    captions: {
+      reformer: {
+        title: "Контролът е в малките движения.",
+        text: "На реформъра работиш с пружинно съпротивление и внимание към изпълнението.",
+      },
+      emsCoaches: {
+        title: "Твоята тренировка. Твоето темпо.",
+        text: "При XBODY интензивността на електромускулната стимулация се настройва индивидуално.",
+      },
+      emsMother: {
+        title: "Време и за теб.",
+        text: "Понякога първата стъпка е просто да отделиш време за себе си.",
+      },
+      reformerDuo: {
+        title: "Всяко движение има значение.",
+        text: "Позицията на тялото и контролът върху движението са част от всяко упражнение на реформъра.",
+      },
+      kettlebell: {
+        title: "По малко, но редовно.",
+        text: "Не е нужно всяка тренировка да е рекорд. Важното е да продължаваш.",
+      },
+      reformerTraining: {
+        title: "Усети движението.",
+        text: "Отдели време за техниката, вместо да бързаш с повторенията.",
+      },
+      shapeMachine: {
+        title: "Нещо ново за твоята рутина.",
+        text: "Shape Space съчетава пътека, вакуумна и инфрачервена технология.",
+      },
+      shapeSession: {
+        title: "Влез в ритъм.",
+        text: "Кардио тренировката със Shape Space се провежда на пътека в специална капсула.",
+      },
+      shapeInterior: {
+        title: "Поглед отвътре.",
+        text: "В капсулата на Shape Space има пътека за кардио тренировка.",
+      },
+      shapeInUse: {
+        title: "Направи следващата крачка.",
+        text: "Нова тренировка може да бъде добър повод да се върнеш към движението.",
+      },
+      studioTraining: {
+        title: "Едно студио. Различни възможности.",
+        text: "Pilates Reformer, XBODY EMS и Shape Space — избери как искаш да тренираш.",
+      },
+      studioRoom: {
+        title: "Остави деня отвън.",
+        text: "Отдели това време за себе си и за движението.",
+      },
+      studioDetail: {
+        title: "Съпротивлението се променя.",
+        text: "Пружините на реформъра позволяват натоварването да се регулира според упражнението.",
+      },
+      emsCorner: {
+        title: "20 минути за твоята тренировка.",
+        text: "Една XBODY EMS сесия в студиото продължава 20 минути.",
+      },
+      emsEquipment: {
+        title: "Технология и движение заедно.",
+        text: "XBODY EMS комбинира физически упражнения с електромускулна стимулация.",
+      },
+      shapeFront: {
+        title: "Дай шанс на нещо ново.",
+        text: "Понякога мотивацията идва, когато опиташ различна тренировка.",
+      },
+      pilatesRoom: {
+        title: "Дишай. Движи се. Продължавай.",
+        text: "При пилатес изпълнението на движението е по-важно от бързането.",
+      },
+      xbodyRoom: {
+        title: "Намери своето натоварване.",
+        text: "Интензивността при XBODY EMS може да се настройва индивидуално.",
+      },
+      studioEntrance: {
+        title: "Започни с едно посещение.",
+        text: "Ще ни намериш на ул. „Илинден“ № 3 в Благоевград.",
+      },
+    },
     alts: {
+      emsCorner:
+        "Кътът за XBODY EMS с тренировъчни костюми и червени платформи",
+      emsEquipment: "XBODY EMS апарат и уреди за упражнения в студиото",
+      shapeFront: "Shape Space — изглед отпред със затворена врата",
+      pilatesRoom: "Залата за Pilates Reformer с огледала и осветени стени",
+      xbodyRoom: "Залата за XBODY EMS с тренировъчно оборудване",
+      studioEntrance:
+        "Входът на Euphoria Wellness Studio на улица Илинден в Благоевград",
+      shapeMachine: "Shape Space в студиото — изглед към машината",
+      shapeSession: "Тренировка на пътека Shape Space в студиото",
+      shapeInterior: "Отворената капсула Shape Space с пътека вътре",
+      shapeInUse: "Shape Space по време на сесия",
+      studioTraining: "XBODY EMS тренировка и Shape Space в студиото",
+      studioRoom: "Залата с Pilates Reformer оборудване до прозорците",
+      studioDetail: "Детайл от Pilates Reformer оборудването в студиото",
       reformer:
         "Жена изпълнява упражнение на Pilates Reformer в модерно студио",
       emsCoaches: "Двойка в EMS костюми позират в студиото",
@@ -120,6 +242,11 @@ export const bg: Translations = {
           handle: "@xbody_euphoria",
           href: "https://instagram.com/xbody_euphoria",
         },
+        {
+          label: "i-motion PRO",
+          handle: "@imotionpro.blg",
+          href: "https://www.instagram.com/imotionpro.blg/",
+        },
       ],
     },
     mapTitle: "Намерете ни на картата",
@@ -133,7 +260,12 @@ export const bg: Translations = {
       phonePlaceholder: "Вашият телефон",
       service: "Услуга (задължително)",
       servicePlaceholder: "Избери услуга",
-      serviceOptions: ["XBODY EMS", "Pilates Reformer", "Други"],
+      serviceOptions: {
+        xbody: "XBODY EMS",
+        pilates: "Pilates Reformer",
+        shape: "Shape Space",
+        others: "Други",
+      },
       message: "Съобщение (по желание)",
       messagePlaceholder: "Разкажете ни повече за вашите цели...",
       submitButton: "Изпрати запитване",
@@ -146,9 +278,9 @@ export const bg: Translations = {
     },
   },
   footer: {
-    heading: " XBody Euphoria & Pilates Reformer",
+    heading: "Euphoria Wellness Studio",
     description:
-      "  Баланс, сила и персонализирана грижа чрез Pilates Reformer и XBODY тренировки в Благоевград.",
+      "Pilates Reformer, XBODY EMS и Shape Space. Тренировки с персонално внимание в Благоевград.",
     alt: "Лого на Euphoria Wellness Studio в Благоевград",
     navigation: {
       title: "Навигация",
@@ -165,7 +297,6 @@ export const bg: Translations = {
       email: "xbodyeuphoria.wellness.studio@gmail.com",
       emailAria: "Изпрати имейл до Euphoria",
     },
-    rights:
-      "Euphoria - XBODY & Pilates Reformer Studio. Всички права запазени.",
+    rights: "Euphoria Wellness Studio. Всички права запазени.",
   },
 };

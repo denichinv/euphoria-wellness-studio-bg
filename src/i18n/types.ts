@@ -1,3 +1,5 @@
+import type { ServiceId } from "../data/services";
+
 export type ServiceCardContent = {
   title: string;
   description: string;
@@ -12,15 +14,23 @@ export type Translations = {
     subtitle: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    discoverShape: string;
+    imageAlts: Record<"pilates" | "xbody", string>;
+    imageLabels: Record<"pilates" | "xbody", string>;
+    imagesLabel: string;
   };
 
   services: {
     badge: string;
     heading: string;
     description: string;
+    request: string;
+    shapeBadge: string;
+    shapeNote: string;
+    videoLabel: string;
   };
 
-  serviceCards: Record<"xbody" | "pilates", ServiceCardContent>;
+  serviceCards: Record<"xbody" | "pilates" | "shape", ServiceCardContent>;
 
   about: {
     badge: string;
@@ -41,7 +51,9 @@ export type Translations = {
     previous: string;
     next: string;
     collectionLabel: string;
+    filters: Record<"all" | "pilates" | "xbody" | "shape" | "studio", string>;
     alts: Record<string, string>;
+    captions: Record<string, { title: string; text: string }>;
   };
 
   contact: {
@@ -90,7 +102,7 @@ export type Translations = {
       phonePlaceholder: string;
       service: string;
       servicePlaceholder: string;
-      serviceOptions: string[];
+      serviceOptions: Record<ServiceId | "others", string>;
       message: string;
       messagePlaceholder: string;
       submitButton: string;
